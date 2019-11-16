@@ -1,5 +1,4 @@
 const express = require('express');
-
 var rateCalculator = require('./rateCalculator.js');
 var app = express();
 // added comment
