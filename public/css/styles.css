@@ -1,0 +1,23 @@
+body {
+    background-color: #BCBEC5;
+    padding: 0%;
+    margin: 0%;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 8vh;
+}
+
+h2 {
+    text-align: center;
+    color: #373D51;
+    font-size: 5vh;
+}
+
+h3 {
+    text-align: center;
+    color: white;
+    font-size: 5vh;
+}
