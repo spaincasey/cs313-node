@@ -1,12 +1,13 @@
 const express = require('express');
+const PORT = process.env.PORT||'8080';
 var rateCalculator = require('./rateCalculator.js');
 var app = express();
 // added comment
-app.set('port', process.env.PORT || 5000)
+app.set(PORT)
    .use(express.static(__dirname + '/public'))
    .set('views', __dirname + '/views')
    .set('view engine', 'ejs')
-   .get('/', function(req, res){h
+   .get('/', function(req, res){
       res.sendFile('form.html', { root: __dirname + "/public"});
    })
    .get('/calculate', rateCalculator.calculate)
