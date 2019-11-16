@@ -3,8 +3,7 @@ const port = process.env.PORT||'8080';
 var rateCalculator = require('./rateCalculator.js');
 var app = express();
 // added comment
-app.set(port)
-   .use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'))
    .set('views', __dirname + '/views')
    .set('view engine', 'ejs')
    .get('/', function(req, res){
