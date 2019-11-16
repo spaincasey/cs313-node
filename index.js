@@ -3,6 +3,9 @@ const port = process.env.PORT||'8080';
 var rateCalculator = require('./rateCalculator.js');
 var app = express();
 // added comment
+app.listen(port, () => {
+    console.log("App is running on port " + port);
+});
 app.use(express.static(__dirname + '/public'))
    .set('views', __dirname + '/views')
    .set('view engine', 'ejs')
@@ -13,10 +16,6 @@ app.use(express.static(__dirname + '/public'))
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    });
-
-server.listen(port, () => {
-    console.log("App is running on port " + port);
-});
 
 // const express = require("express");
 // const bodyParser = require("body-parser");
