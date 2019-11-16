@@ -1,10 +1,10 @@
 const express = require('express');
-const port = process.env.PORT||'8080';
 var rateCalculator = require('./rateCalculator.js');
 var app = express();
 // added comment
-app.listen(port, () => {
-    console.log("App is running on port " + port);
+const PORT = process.env.PORT||'8080';
+app.listen(PORT, () => {
+    console.log("App is running on port " + PORT);
 });
 app.use(express.static(__dirname + '/public'))
    .set('views', __dirname + '/views')
@@ -13,8 +13,8 @@ app.use(express.static(__dirname + '/public'))
       res.sendFile('form.html', { root: __dirname + "/public"});
    })
    .get('/calculate', rateCalculator.calculate)
-   .listen(app.get('port'), function() {
-      console.log('Listening on port: ' + app.get('port'));
+   .listen(app.get('PORT'), function() {
+      console.log('Listening on PORT: ' + app.get('PORT'));
    });
 
 // const express = require("express");
