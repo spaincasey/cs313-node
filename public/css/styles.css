@@ -21,3 +21,53 @@ h3 {
     color: white;
     font-size: 5vh;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 0;
+    background-color: #373D51;
+    height: 300px;   
+}
+
+.form {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    text-align: left;
+    background-color: white;
+    padding: 3vh;
+}
+
+.display {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    width: 70%;
+    text-align: center;
+    background-color: #373D51;
+    color: #BCBEC5;
+    padding: 3vh;
+    padding-bottom: 50vh;
+    padding-top: 0vh;
+}
+
+.button {
+    background-color: #BCBEC5; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }

@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
     <title>Document</title>
 </head>
 <body>
+<div class="header">
+    <br>
+    <h1>Postal Rate Calculator</h1>
+</div>
+<div class="display">
+    <br><br>
     <form action="/calculate" method="get">
-    Enter the weight: <input type="text" name="weight"><br>
+    Enter the weight: <input type="text" name="weight" required> (oz)<br><br>
     <select name="type">
         <option value="Letters(Stamped)">Letters(Stamped)</option>
         <option value="Letters(Metered)">Letters(Metered)</option>
         <option value="Large Envelopes(Flats)">Large Envelopes(Flats)</option>
         <option value="First-Class Package Service - Retail">First-Class Package Service - Retail</option>
+    </select>
+    <br><br>
+    <input class="button" type="submit" value="calculate"> 
     </form>
-    <br>
-    <input type="submit" value="calculate">
+</div>
 </body>
 </html>
