@@ -5,7 +5,7 @@ var app = express();
 const PORT = process.env.PORT||'8080';
 app.listen(PORT, () => {
     console.log("App is running on port " + PORT);
-});
+    });
 app.use(express.static(__dirname + '/public'))
    .set('views', __dirname + '/views')
    .set('view engine', 'ejs')
