@@ -13,20 +13,22 @@ pool.on('error', (err, client) => {
  })
 
 // added comment
-app.set('port', process.env.PORT || 5000);
-app.use(express.static(__dirname + '/public'));
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-app.get('/', function(req, res){
+app.set('port', process.env.PORT || 5000)
+   .use(express.urlencoded({extended: true}))
+   .use(express.json())
+   .use(express.static(__dirname + '/public'))
+   .set('views', __dirname + '/views')
+   .set('view engine', 'ejs')
+   .get('/', function(req, res){
       res.sendFile('HomePage.html', { root: __dirname + "/public"});
-   });
-app.post('/postJobs', postJobs);
-app.listen(app.get('port'), function() {
+   })
+   .post('/postJobs', postJobs)
+   .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    });
 
 
-function getJobs(request, response) {
+function postJobs(request, response) {
    console.log("Category is: " + request.body.cat);
    console.log(request.query.category);
 	// First get the person's id
