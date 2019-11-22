@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res){
       res.sendFile('HomePage.html', { root: __dirname + "/public"});
    });
-app.get('/getJobs', getJobs);
+app.post('/postJobs', postJobs);
 app.listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    });
@@ -30,7 +30,7 @@ function getJobs(request, response) {
    console.log("Category is: " + request.body.cat);
    console.log(request.query.category);
 	// First get the person's id
-	const category = request.query.cat;
+   const category = request.query.cat;
 
 	// TODO: We should really check here for a valid id before continuing on...
 
