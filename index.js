@@ -27,7 +27,7 @@ app.set('port', process.env.PORT || 5000)
 
 
 function getJobs(req, res) {
-   console.log(req.body.selectpicker);
+   console.log(req.body.dropdown);
    // // First get the person's id
    // const id = request.query.id;
 
