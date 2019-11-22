@@ -41,7 +41,7 @@ input {
 }
 
 input .btn-primary {
-    width: auto;
+    width: 5vh;
 }
 
 footer {
