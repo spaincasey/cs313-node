@@ -1,3 +1,11 @@
+const { Pool } = require('pg');
+const connectionString = process.env.DATABASE_URL;
+const pool = new Pool({connectionString: connectionString});
+pool.on('error', (err, client) => {
+   console.error('Unexpected error on idle client', err)
+   process.exit(-1)
+ })
+ 
 function getJobs(req, res) {
     console.log("Category is: " + req.body.category);
     console.log("Category is: " + req.query.category);
