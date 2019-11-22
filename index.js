@@ -27,8 +27,8 @@ app.listen(app.get('port'), function() {
 
 
 function getJobs(req, res) {
-   console.log("Category is: " + req.body.cat);
-   console.log(req.query.category);
+   console.warn("Category is: " + req.body.cat);
+   console.warn(req.query.category);
 	// First get the person's id
 	const category = req.query.cat;
 
