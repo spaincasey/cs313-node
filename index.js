@@ -29,7 +29,7 @@ pool.query('SELECT * FROM user_app WHERE id = 1', [1], (err, res) => {
    if (err) {
      throw err
    }
-   console.log('user:', res.rows[0])
+   console.log('user:', res.rows[1])
 })
 
 // added comment
