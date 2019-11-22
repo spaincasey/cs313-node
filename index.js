@@ -31,6 +31,7 @@ app.set('port', process.env.PORT || 5000)
 
 function getJobs(request, response) {
    console.log("Category is: " + request.body.cat);
+   console.log("Category is: " + request.query.cat);
    const category = request.body.cat;
 	getJobsFromDb(category, function(error, result) {
 
