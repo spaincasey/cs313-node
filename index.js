@@ -29,17 +29,17 @@ app.set('port', process.env.PORT || 5000)
    });
 
 
-function getJobs(request, response) {
-   console.log("Category is: " + request.body.cat);
-   console.log("Category is: " + request.query.cat);
-   const category = request.body.cat;
+function getJobs(req, res) {
+   console.log("Category is: " + req.body.category);
+   console.log("Category is: " + req.query.category);
+   const category = req.body.cat;
 	getJobsFromDb(category, function(error, result) {
 
 		if (error || result == null || result.length != 1) {
-			response.status(500).json({success: false, data: error});
+			res.status(500).json({success: false, data: error});
 		} else {
 			const person = result[0];
-         response.status(200).json(person);
+         res.status(200).json(person);
          // response.render('pages/jobs', {results: results});
       }
       
