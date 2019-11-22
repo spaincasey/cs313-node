@@ -36,7 +36,7 @@ function postJobs(request, response) {
 	// TODO: We should really check here for a valid id before continuing on...
 
 	// use a helper function to query the DB, and provide a callback for when it's done
-	getPersonFromDb(category, function(error, result) {
+	getJobsFromDb(category, function(error, result) {
 		// This is the callback function that will be called when the DB is done.
 		// The job here is just to send it back.
 
@@ -53,12 +53,12 @@ function postJobs(request, response) {
 // This function gets a person from the DB.
 // By separating this out from the handler above, we can keep our model
 // logic (this function) separate from our controller logic (the getPerson function)
-function getPersonFromDb(category, callback) {
-	console.log("Getting person from DB with id: " + id);
+function getJobsFromDb(category, callback) {
+	// console.log("Getting person from DB with id: " + );
 
 	// Set up the SQL that we will use for our query. Note that we can make
 	// use of parameter placeholders just like with PHP's PDO.
-	const sql = "SELECT * FROM Jobs WHERE category = $1::text";
+	const sql = "SELECT * FROM Jobs WHERE category = $1";
 
 	// We now set up an array of all the parameters we will pass to fill the
 	// placeholder spots we left in the query.
