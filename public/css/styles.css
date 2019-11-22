@@ -41,7 +41,7 @@ input {
 }
 
 .btn-secondary {
-    width: 5vh;
+    width: auto;
 }
 
 footer {
