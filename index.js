@@ -26,25 +26,25 @@ app.listen(app.get('port'), function() {
    });
 
 
-function getJobs(request, response) {
-   console.log("Category is: " + request.body.cat);
-   console.log(request.query.category);
+function getJobs(req, res) {
+   console.log("Category is: " + req.body.cat);
+   console.log(req.query.category);
 	// First get the person's id
-	const category = request.query.cat;
+	const category = req.query.cat;
 
 	// TODO: We should really check here for a valid id before continuing on...
 
 	// use a helper function to query the DB, and provide a callback for when it's done
-	getPersonFromDb(category, function(error, result) {
+	getPersonFromDb(category, function(error, res) {
 		// This is the callback function that will be called when the DB is done.
 		// The job here is just to send it back.
 
 		// Make sure we got a row with the person, then prepare JSON to send back
-		if (error || result == null || result.length != 1) {
-			response.status(500).json({success: false, data: error});
+		if (error || res == null || res.length != 1) {
+			res.status(500).json({success: false, data: error});
 		} else {
-			const person = result[0];
-			response.status(200).json(person);
+			const person = res[0];
+			res.status(200).json(person);
 		}
 	});
 }
@@ -65,7 +65,7 @@ function getPersonFromDb(category, callback) {
 
 	// This runs the query, and then calls the provided anonymous callback function
 	// with the results.
-	pool.query(sql, params, function(err, result) {
+	pool.query(sql, params, function(err, res) {
 		// If an error occurred...
 		if (err) {
 			console.log("Error in query: ")
@@ -74,7 +74,7 @@ function getPersonFromDb(category, callback) {
 		}
 
 		// Log this to the console for debugging purposes.
-		console.log("Found result: " + JSON.stringify(result.rows));
+		console.log("Found result: " + JSON.stringify(res.rows));
 
 
 		// When someone else called this function, they supplied the function
@@ -82,7 +82,7 @@ function getPersonFromDb(category, callback) {
 		// and pass it the results.
 
 		// (The first parameter is the error variable, so we will pass null.)
-		callback(null, result.rows);
+		callback(null, res.rows);
 	});
 
 }
