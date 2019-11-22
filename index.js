@@ -22,16 +22,16 @@ app.set('port', process.env.PORT || 5000)
    .get('/', function(req, res){
       res.sendFile('HomePage.html', { root: __dirname + "/public"});
    })
-   .post('/postJobs', postJobs)
+   .get('/getJobs', getJobs)
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    });
 
 
-function postJobs(request, response) {
-   console.log("Category is: " + request.body.cat);
+function getJobs(request, response) {
+   console.log("Category is: " + request.query.cat);
 	// First get the person's id
-   const category = request.body.cat;
+   const category = request.query.cat;
 
 	// TODO: We should really check here for a valid id before continuing on...
 
