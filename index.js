@@ -3,7 +3,7 @@ const connectionString = process.env.DATABASE_URL || "postgres://pahknpkcrlpedi:
 var rateCalculator = require('./rateCalculator.js');
 var app = express();
 
-const pool = new Pool({connectionString: connectionString});
+// const pool = new Pool({connectionString: connectionString});
 
 // added comment
 app.set('port', process.env.PORT || 5000)
