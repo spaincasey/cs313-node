@@ -41,7 +41,8 @@ function getJobs(req, res) {
 
 		// Make sure we got a row with the person, then prepare JSON to send back
 		if (error || result == null || result.length != 1) {
-			res.status(500).json({success: false, data: error});
+         res.status(500).json({success: false, data: error});
+         console.log("Category is: " + category);
 		} else {
 			const person = result[0];
 			res.status(200).json(person);
