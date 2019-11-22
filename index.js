@@ -37,7 +37,9 @@ function getJobs(request, response) {
 		if (error || result == null || result.length != 1) {
 			response.status(500).json({success: false, data: error});
 		} else {
-         response.render('pages/jobs', {results: results});
+			const person = result[0];
+         response.status(200).json(person);
+         // response.render('pages/jobs', {results: results});
       }
       
    });
