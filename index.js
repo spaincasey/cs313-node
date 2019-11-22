@@ -23,7 +23,7 @@ app.set('port', process.env.PORT || 5000)
    .get('/getJobs', getJobs)
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
-   })
+   });
 
 
 function getJobs(request, response) {
