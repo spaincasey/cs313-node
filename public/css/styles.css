@@ -1,73 +1,194 @@
 body {
     background-color: #BCBEC5;
     padding: 0%;
-    margin: 0%;
+}
+
+p {
+    color: white;
+    font-size: 1.5vw;
 }
 
 h1 {
     text-align: center;
-    color: white;
-    font-size: 8vh;
-}
-
-h2 {
-    text-align: center;
-    color: #373D51;
-    font-size: 5vh;
+    color: white !important;
+    margin: 0%;
+    padding: 5%;
 }
 
 h3 {
     text-align: center;
-    color: white;
-    font-size: 5vh;
+    color: #BCBEC5 !important;
+    font-size: 2vw;
+}
+
+h4 {
+    text-align: left;
+    color: #BCBEC5 !important;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+input { 
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+footer {
+    width: 100%;
+    background-color: #222222;
+    padding: 0% 12.5% 0% 12.5%;
+    text-align: center;
+    color: #BCBEC5;
+}
+
+footer > .row > .col-sm-4 p {
+    font-size: 1vw;
+}
+
+.results {
+    text-align: left;
+}
+
+.input1 {
+    width: 50%;
+    float: left;
+}
+.input2 {
+    width: 50%;
+    float: right;
+}
+
+.div3 { 
+    background-color: #383B53;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px !important;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown {
+    text-align:center;
+}
+
+.button, .dropdown-menu {
+    margin:0px auto
+
+}
+.dropdown-menu {
+    width:200px; left:50%; margin-left:-100px;
+}
+
+.col-sm-3, .col-sm-4{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 2%;
+}
+
+.carousel {
+    margin-top: 0px;
+}
+
+.carousel-inner > .item > img {
+    width:100%;
+    height:40vw;
+}
+
+.jobs {
+    background-color: #383B53;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px !important;
+    padding-bottom: 10%;
+    width: 75%;
+    text-align: center;
+}
+
+.container {
+    width: 75%;
+}
+
+.right {
+    float: right;
+}
+
+.thumbnail {
+    width: 10px;
+    height: auto;
+}
+
+.div1 {
+    float: left;
+}
+
+.div2 {
+    float:right;
+    text-align: right;
+}
+
+.panel-footer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.col4 {
+    margin-bottom: 15px;
+}
+
+.icon {
+    width: 40px;
+    height: auto;
+}
+
+.btn-primary {
+    background-color: #3581B8 !important;
 }
 
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
-    height: 100%;
-    text-align: center;
+    width: 50%;
+    text-align: left;
 }
-
-.header {
+.navbar{
+    margin-bottom: 0px;
+    border: #373D51;
+}
+.jumbotron {
     margin-bottom: 0;
     background-color: #373D51;
     height: 300px;   
 }
 
-.form {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-    text-align: left;
-    background-color: white;
-    padding: 3vh;
+.mr-auto {
+    margin-right: auto !important;
 }
 
-.display {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-    width: 70%;
-    text-align: center;
-    background-color: #373D51;
-    color: #BCBEC5;
-    padding: 3vh;
-    padding-bottom: 50vh;
-    padding-top: 0vh;
+.comment {
+    margin: auto;
+    width: 100vw;
 }
 
-.button {
-    background-color: #BCBEC5; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    width: fit-content;
+}
+  
