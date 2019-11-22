@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res){
       res.sendFile('HomePage.html', { root: __dirname + "/public"});
    });
-app.get('/getJobs', getJobs);
+app.get('/getJobs', getJobs(req, res));
 app.listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    });
