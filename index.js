@@ -21,9 +21,6 @@ app.get('/', function(req, res){
       res.sendFile('HomePage.html', { root: __dirname + "/public"});
    });
 app.get('/getJobs', getJobs);
-app.listen(app.get('port'), function() {
-      console.log('Listening on port: ' + app.get('port'));
-   });
 
 
 function getJobs(req, res) {
@@ -87,3 +84,7 @@ function getPersonFromDb(category, callback) {
 	});
 
 }
+
+app.listen(app.get('port'), function() {
+   console.log('Listening on port: ' + app.get('port'));
+});
