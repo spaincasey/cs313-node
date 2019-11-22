@@ -49,9 +49,9 @@ function getJobs(req, res) {
 }
 
 function getJobsFromDb(category, callback) {
-   const sql = "SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = '$1'";
+   const sql = "SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = $1";
 	// const sql = "SELECT * FROM Job WHERE category = $1";
-	const params = [category];
+	const params = ['category'];
 	pool.query(sql, params, function(err, result) {
 		if (err) {
 			console.log("Error in query: ")
