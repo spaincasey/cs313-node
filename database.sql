@@ -1,8 +1,8 @@
-CREATE TABLE public.User_app (id SERIAL NOT NULL PRIMARY KEY, first_name VARCHAR(100) NOT NULL, last_name VARCHAR(100) NOT NULL, email VARCHAR(100) NOT NULL UNIQUE, user_role INT NOT NULL REFERENCES public.role(id));
+CREATE TABLE public.User_app (id SERIAL NOT NULL PRIMARY KEY, first_name VARCHAR(100) NOT NULL, last_name VARCHAR(100) NOT NULL, email VARCHAR(100) NOT NULL UNIQUE, user_role INT NOT NULL REFERENCES public.User_role(id));
 CREATE TABLE public.Job (id SERIAL NOT NULL PRIMARY KEY, category INT NOT NULL REFERENCES public.category(id), description TEXT NOT NULL, image VARCHAR(100) NOT NULL);
 CREATE TABLE public.Review (id SERIAL NOT NULL PRIMARY KEY,user_app_id INT NOT NULL REFERENCES public.user_app(id), review_text TEXT NOT NULL);
 CREATE TABLE public.Category (id SERIAL NOT NULL PRIMARY KEY, cat_name VARCHAR(100) NOT NULL);
-CREATE TABLE public.role (id SERIAL NOT NULL PRIMARY KEY, role_name VARCHAR(100) NOT NULL);
+CREATE TABLE public.User_role (id SERIAL NOT NULL PRIMARY KEY, role_name VARCHAR(100) NOT NULL);
 
 INSERT INTO category(cat_name)VALUES('drywall');
 INSERT INTO category(cat_name)VALUES('roofing');
@@ -23,3 +23,8 @@ INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHER
 INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHERE email='firstnotlast@fast.com'), 'Pannell construction did such a great job with our house!');
 
 INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id FROM User_app WHERE email='spa12007@byui.edu'), 'Pannell Construction did a great job');
+
+INSERT INTO User_role(role_name)VALUES('Owner');
+INSERT INTO User_role(role_name)VALUES('User');
+
+INSERT INTO User_app(first_name, last_name, email, user_role)VALUES('Casey', 'Spain', 'spa12007@byui.edu', (SELECT id FROM User_role WHERE role_name='Owner'));

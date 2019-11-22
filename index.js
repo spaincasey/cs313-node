@@ -24,12 +24,13 @@ pool.on('error', (err, client) => {
 //    })
 // })
 
-// pool.query("SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = 'demolition';", [1], (err, res) => {
-//    if (err) {
-//      throw err
-//    }
-//    console.log('user:', res.rows[0])
-// })
+
+pool.query('SELECT * FROM user_app WHERE id = 1', [1], (err, res) => {
+   if (err) {
+     throw err
+   }
+   console.log('user:', res.rows[0])
+})
 
 // added comment
 app.set('port', process.env.PORT || 5000)
