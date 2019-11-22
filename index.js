@@ -30,7 +30,7 @@ function getJobs(request, response) {
    console.log("Category is: " + request.body.cat);
    console.log(request.query.category);
 	// First get the person's id
-	const category = request.body.cat;
+	const category = request.query.cat;
 
 	// TODO: We should really check here for a valid id before continuing on...
 
