@@ -40,7 +40,7 @@ input {
     background: #f1f1f1;
 }
 
-input .btn .btn-primary {
+.btn-secondary {
     width: 5vh;
 }
 
