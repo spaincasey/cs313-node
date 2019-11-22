@@ -30,9 +30,8 @@ app.set('port', process.env.PORT || 5000)
 
 function postJobs(request, response) {
    console.log("Category is: " + request.body.cat);
-   console.log(request.query.category);
 	// First get the person's id
-   const category = request.query.cat;
+   const category = request.body.cat;
 
 	// TODO: We should really check here for a valid id before continuing on...
 
