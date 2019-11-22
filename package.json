@@ -1,5 +1,5 @@
 {
-  "name": "blooming-dusk-42276",
+  "name": "cs313-construction",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.heroku.com/blooming-dusk-42276.git"
+    "url": "https://git.heroku.com/cs313-construction.git"
   },
   "author": "Casey Spain",
   "license": "ISC",
