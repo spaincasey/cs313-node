@@ -7,6 +7,10 @@ const connectionString = process.env.DATABASE_URL || 'postgres://pahknpkcrlpedi:
 
 
 const pool = new Pool({connectionString: connectionString});
+pool.on('error', (err, client) => {
+   console.error('Unexpected error on idle client', err)
+   process.exit(-1)
+ })
 
 // added comment
 app.set('port', process.env.PORT || 5000)
@@ -21,22 +25,14 @@ app.set('port', process.env.PORT || 5000)
       console.log('Listening on port: ' + app.get('port'));
    })
 
-// const express = require("express");
-// const bodyParser = require("body-parser");
-// const path = require("path");
-
-// const port = process.env.PORT || 5000;
-
-// const calculateRate = (req, res) => {
-    
-// }
-
-// const app = express()
-//     .use(express.static(path.join(__dirname, 'public')))
-//     .use(bodyParser.urlencoded({ extended: true}))
-//     .set('views', path.join(__dirname, 'views'))
-//     .set('view engine', 'ejs')
-//     .get('/', (req,res) => res.render('pages/index'))
-//     .post('/getRate', calculateRate)
-
-// app.listen(port, () => {console.log('Listening on port ${port}!')})
+pool.connect((err, client, done) => {
+   if (err) throw err
+   client.query("SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = 'demolition';", [1], (err, res) => {
+      done()
+      if (err) {
+         console.log(err.stack)
+      } else {
+         console.log(res.rows[0])
+      }
+   })
+})
