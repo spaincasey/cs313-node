@@ -12,6 +12,18 @@ pool.on('error', (err, client) => {
    process.exit(-1)
  })
 
+pool.connect((err, client, done) => {
+   if (err) throw err
+   client.query("SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = 'demolition';", [1], (err, res) => {
+      done()
+      if (err) {
+         console.log(err.stack)
+      } else {
+         console.log(res.rows[0])
+      }
+   })
+})
+
 // added comment
 app.set('port', process.env.PORT || 5000)
    .use(express.static(__dirname + '/public'))
@@ -24,15 +36,3 @@ app.set('port', process.env.PORT || 5000)
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    })
-
-pool.connect((err, client, done) => {
-   if (err) throw err
-   client.query("SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = 'demolition';", [1], (err, res) => {
-      done()
-      if (err) {
-         console.log(err.stack)
-      } else {
-         console.log(res.rows[0])
-      }
-   })
-})
