@@ -58,7 +58,7 @@ function getJobsFromDb(category, callback) {
 
 	// Set up the SQL that we will use for our query. Note that we can make
 	// use of parameter placeholders just like with PHP's PDO.
-	const sql = "SELECT * FROM Jobs WHERE category = $1";
+	const sql = "SELECT * FROM Job WHERE category = $1";
 
 	// We now set up an array of all the parameters we will pass to fill the
 	// placeholder spots we left in the query.
