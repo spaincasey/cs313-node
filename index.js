@@ -27,7 +27,7 @@ app.set('port', process.env.PORT || 5000)
 
 
 function getJobs(request, response) {
-   console.log(request.body.cat);
+   console.log("Category is: " + request.body.cat);
    console.log(request.query.category);
 	// First get the person's id
 	const category = request.body.cat;
