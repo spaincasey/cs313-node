@@ -20,7 +20,7 @@ app.set('port', process.env.PORT || 5000)
    .set('views', __dirname + '/views')
    .set('view engine', 'ejs')
    .get('/', function(req, res){
-      res.sendFile('HomePage.html', { root: __dirname + "/public"});
+      res.render('pages/HomePage');
    })
    .get('/getJobs', getJobs)
    .listen(app.get('port'), function() {
