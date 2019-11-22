@@ -113,12 +113,15 @@
 <div class='jobs'>
   <div class='jobs'>
     <h1>Our Projects</h1>
-      <select class="dropdown" id="category" onchange="read()" required>
-        <option value="" selected>all</option>
+    <form id="jobsForm" action="/getJobs" method="get">
+        <select class="dropdown" id="category" onchange="read()" required>
+            <option value="" selected>all</option>
     		<option value="drywall">drywall</option>
     		<option value="roofing">roofing</option>
     		<option value="demolition">demolition</option>
-	  	</select>
+        </select>
+        <input type="submit" />
+    </form>
     <div id="results">
     </div>
   </div>
