@@ -7,7 +7,7 @@ app.set('port', process.env.PORT || 5000)
    .set('views', __dirname + '/views')
    .set('view engine', 'ejs')
    .get('/', function(req, res){
-      res.sendFile('form.html', { root: __dirname + "/public"});
+      res.sendFile('HomePage.html', { root: __dirname + "/public"});
    })
    .get('/calculate', rateCalculator.calculate)
    .listen(app.get('port'), function() {
