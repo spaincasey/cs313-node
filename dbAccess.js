@@ -19,7 +19,7 @@ function getJobs(req, res) {
             // res.status(200).json(person);
             // res.render('pages/results', result);
             // const jobs = JSON.stringify(result);
-            res.render('pages/results', {result: jobs});
+            res.render('pages/results', {result: result});
        }
        
     });
