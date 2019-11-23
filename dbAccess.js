@@ -1,3 +1,4 @@
+// ESTABLISH DATABASE CONNECTION
 const { Pool } = require('pg');
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
@@ -6,48 +7,40 @@ pool.on('error', (err, client) => {
    process.exit(-1)
  })
 
+
+// FUNCTION getJobs queries database for jobs
 function getJobs(req, res) {
-    console.log("Category is: " + req.body.category);
-    console.log("Category is: " + req.query.category);
+    // Get category from dropdown menu
     const category = req.query.category;
-     getJobsFromDb(category, function(error, result) {
- 
+    getJobsFromDb(category, function(error, result) {
          if (error || result == null) {
             res.status(500).json({success: false, data: error});
          } else {
-            // const person = result[0];
-            // res.status(200).json(person);
-            // res.render('pages/results', result);
-            // const jobs = JSON.stringify(result);
+            // send query results to be displayed on results page
             res.render('pages/results', {result: result});
        }
-       
     });
  }
  function getJobsFromDb(category, callback) {
     var sql = "";
+    // If no category specified, then display all jobs
     if(category == ""){
         sql = "SELECT * FROM Job";
         pool.query(sql, function(err, result) {
             if (err) {
-                console.log("Error in query: ")
-                console.log(err);
                 callback(err, null);
             }
-            console.log("Found result: " + JSON.stringify(result.rows));
             callback(null, result.rows);
         });
-    }else{ 
+    }
+    // If there is a category, then display jobs from that category
+    else{ 
         sql = "SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = $1";
-        // const sql = "SELECT * FROM Job WHERE category = $1";
         const params = [category];
         pool.query(sql, params, function(err, result) {
             if (err) {
-                console.log("Error in query: ")
-                console.log(err);
                 callback(err, null);
             }
-            console.log("Found result: " + JSON.stringify(result.rows));
             callback(null, result.rows);
         });
     }   
