@@ -12,7 +12,7 @@ function getJobs(req, res) {
     const category = req.query.category;
      getJobsFromDb(category, function(error, result) {
  
-         if (error || result == null || result.length != 1) {
+         if (error || result == null) {
             res.status(500).json({success: false, data: error});
          } else {
             // const person = result[0];
