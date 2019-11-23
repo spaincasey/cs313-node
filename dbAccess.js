@@ -18,7 +18,7 @@ function getJobs(req, res) {
             // const person = result[0];
             // res.status(200).json(person);
             // res.render('pages/results', result);
-            const jobs = JSON.stringify(result);
+            // const jobs = JSON.stringify(result);
             res.render('pages/results', {result: jobs});
        }
        
