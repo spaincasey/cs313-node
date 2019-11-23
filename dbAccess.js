@@ -13,16 +13,16 @@ function getJobs(req, res) {
      getJobsFromDb(category, function(error, result) {
  
          if (error || result == null || result.length != 1) {
-             res.status(500).json({success: false, data: error});
+            res.status(500).json({success: false, data: error});
          } else {
-             const person = result[0];
-          res.status(200).json(person);
+            // const person = result[0];
+            // res.status(200).json(person);
+            res.render('pages/jobs', result);
           // response.render('pages/jobs', {results: results});
        }
        
     });
  }
- 
  function getJobsFromDb(category, callback) {
     const sql = "SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = $1";
      // const sql = "SELECT * FROM Job WHERE category = $1";
