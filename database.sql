@@ -10,9 +10,9 @@ INSERT INTO category(cat_name)VALUES('roofing');
 INSERT INTO category(cat_name)VALUES('demolition');
 
 /* Insert Jobs */
-INSERT INTO Job(category, description, image)VALUES((SELECT id from Category WHERE cat_name='drywall'), 'Drywall project for Rigby family', 'drywall1.jpg');
-INSERT INTO Job(category, description, image)VALUES((SELECT id from Category WHERE cat_name='roofing'), 'Roofing done for Rexburg business', 'roofing1.jpg');
-INSERT INTO Job(category, description, image)VALUES((SELECT id from Category WHERE cat_name='demolition'), 'Tore out insulation under Rexburg home', 'demolition1.jpg');
+INSERT INTO Job(category, description, image)VALUES((SELECT id from Category WHERE cat_name='drywall'), 'Drywall project for Rigby family', '/images/drywall1.jpg');
+INSERT INTO Job(category, description, image)VALUES((SELECT id from Category WHERE cat_name='roofing'), 'Roofing done for Rexburg business', '/images/roofing1.jpg');
+INSERT INTO Job(category, description, image)VALUES((SELECT id from Category WHERE cat_name='demolition'), 'Tore out insulation under Rexburg home', '/images/demolition1.jpg');
 
 /* Insert User_roles */
 INSERT INTO User_role(role_name)VALUES('Owner');
@@ -34,3 +34,7 @@ INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id FROM User_app WHER
 SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = 'demolition';
 SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = 'drywall';
 SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = 'roofing';
+
+UPDATE Job SET image = '/images/drywall1.jpg' WHERE image = 'drywall1.jpg';
+UPDATE Job SET image = '/images/roofing1.jpg' WHERE image = 'roofing1.jpg';
+UPDATE Job SET image = '/images/demolition1.jpg' WHERE image = 'demolition1.jpg';
