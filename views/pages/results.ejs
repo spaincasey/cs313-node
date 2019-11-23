@@ -78,7 +78,11 @@
         <input type="submit" class="btn btn-secondary"/>
     </form>
     <div id="results">
-        <%= result %>
+        <% for(var i=0; i<result.length; i++) {%>
+            <hr>
+            <img src= <%= result[i].image %> class='img-responsive' alt='Image'>;
+            <h3> <%= results[i].description %> </h3>
+        <% } %>
     </div>
   </div>
 </div>
