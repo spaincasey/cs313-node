@@ -18,7 +18,7 @@ function getJobs(req, res) {
             // const person = result[0];
             // res.status(200).json(person);
             // res.render('pages/results', result);
-            res.render('pages/results', {results: results});
+            res.render('pages/results', {result: result});
        }
        
     });
