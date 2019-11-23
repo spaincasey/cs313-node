@@ -5,7 +5,7 @@ pool.on('error', (err, client) => {
    console.error('Unexpected error on idle client', err)
    process.exit(-1)
  })
- 
+
 function getJobs(req, res) {
     console.log("Category is: " + req.body.category);
     console.log("Category is: " + req.query.category);
@@ -37,3 +37,5 @@ function getJobs(req, res) {
          callback(null, result.rows);
     });
  }
+
+ module.exports = {getJobs: getJobs};
