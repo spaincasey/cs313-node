@@ -23,6 +23,12 @@ app.set('port', process.env.PORT || 5000)
    .get('/jobs', function(req, res){
       res.render('pages/jobs');
    })
+   .get('/reviews', function(req, res){
+      res.render('pages/reviews');
+   })
+   .get('/contact', function(req, res){
+      res.render('pages/contact');
+   })
    .get('/getJobs', dbAccess.getJobs)
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
