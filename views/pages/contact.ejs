@@ -8,7 +8,43 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="HomePage.css">
+  <script type="text/javascript">
+    window.onload = function() {
+        read();
+    }
+
+    /********************************************************
+	* AJAX request to read the Job items
+	*********************************************************/
+	function read() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+                data = this.responseText;
+                document.getElementById("results").innerHTML = data;
+			}
+		};
+		xhttp.open("GET", "loadData.php" , true);
+		xhttp.send();
+	}
+
+  function addUser() {
+    var first = document.getElementById("first_name").value;
+    var last = document.getElementById("last_name").value;
+    var email = document.getElementById("email").value;
+    var url = "addUser.php?fname=" + first + "&lname=" + last + "&email=" + email;
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+        // data = this.responseText;
+        document.getElementById("result").innerHTML = this.responseText;
+			}
+		};
+		xhttp.open("POST", url , true);
+		xhttp.send();
+  }
+  </script>
 </head>
 <body>
 <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
@@ -37,6 +73,14 @@
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-primary" name="action" value="Sign Up/Sign In" />
+        <!-- <div class="row">
+          <div class="col-sm-6">
+            <input type="submit" class="btn btn-primary" name="action" value="Sign Up/Sign In" />
+          </div>
+          <div class="col-sm-6">
+            <input type="submit" class="btn btn-primary" name="action" value="Sign In" />
+          </div>
+        </div> -->
       </div>
       </form>
     </div>
@@ -49,35 +93,55 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                         
       </button>
       <a class="navbar-brand" href="HomePage.php">Pannell Construction</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/">Home</a></li>
-        <li class="active"><a href="#">Jobs</a></li>
+        <li><a href="/HomePage">Home</a></li>
+        <li><a href="/jobs">Jobs</a></li>
         <li><a href="/reviews">Reviews</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li class="active"><a href="#">Contact</a></li>
         <li><a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up/Sign In</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
+<!-- <div class="container"> 
+  <img src="residential.jpg" alt="Los Angeles">
+</div> -->
+
 <div class='jobs'>
+  <img src="residential.jpg" alt="Los Angeles">
   <div class='jobs'>
-    <h1>Our Projects</h1>
-    <form id="jobsForm" action="/getJobs" method="get" novalidate>
-        <select name="category" class="dropdown" id="category" required>
-          <option value="" selected>all</option>
-          <option value="drywall">drywall</option>
-          <option value="roofing">roofing</option>
-          <option value="demolition">demolition</option>
-        </select><br>
-        <input type="submit" class="btn btn-secondary"/>
-    </form>
-    <div id="results">
+    <h1>Contact Us</h1><hr>
+    <h3>We would love to work with you on your next construction project
+    <br>contact us and we will get in touch with you as soon as possible</h3>
+    <br><hr><br><br>
+    <div class="container-fluid">
+    <br>
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>EMAIL</h3>
+          <br>
+          <p>pannel@construction.com</p>
+        </div>
+        <div class="col-sm-4">
+          <h3>PHONE</h3>
+          <br>
+          <p>555-555-5555</p>
+        </div>
+        <div class="col-sm-4">
+          <h3>ADDRESS</h3>
+          <br>
+          <p>123 N 456 S 
+          <br>Rexburg, ID 83440</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
