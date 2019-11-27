@@ -7,6 +7,10 @@ pool.on('error', (err, client) => {
    process.exit(-1)
  })
 
+function postUser(req, res) {
+    
+}
+
 
 // FUNCTION getJobs queries database for jobs
 function getJobs(req, res) {
