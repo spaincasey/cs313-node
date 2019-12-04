@@ -38,7 +38,7 @@ app.set('port', process.env.PORT || 5000)
          console.log("Email: " + email);
          const a = await addUser(first, last, email);
          console.log(a);
-         return a;
+         res.render('pages/HomePage');
       } catch {
          console.log(error)
       } 
