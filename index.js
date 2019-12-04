@@ -39,7 +39,7 @@ app.set('port', process.env.PORT || 5000)
       } catch {
          console.log(error)
       }
-      req.end();
+      req.end()
    })
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
