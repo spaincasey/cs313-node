@@ -28,7 +28,9 @@ app.set('port', process.env.PORT || 5000)
       res.render('pages/contact');
    })
    .get('/getJobs', dbAccess.getJobs)
-   .post('/postUser', dbAccess.postUser)
+   .post('/postUser', function(req, res){
+      console.log("First Name: " + first);
+   })
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    });
