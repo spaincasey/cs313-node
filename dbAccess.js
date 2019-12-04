@@ -58,4 +58,7 @@ function getJobs(req, res) {
     }   
  }
 
- module.exports = {getJobs: getJobs};
+ module.exports = {
+     getJobs: getJobs,
+     postUser: postUser
+};
