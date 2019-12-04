@@ -36,6 +36,7 @@ app.set('port', process.env.PORT || 5000)
          await console.log("First Name: " + first);
          console.log("Last Name: " + last);
          console.log("Email: " + email);
+         req.end();
       } catch {
          console.log(error)
       }
