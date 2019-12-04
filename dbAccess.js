@@ -29,7 +29,7 @@ function getJobs(req, res) {
             res.status(500).json({success: false, data: error});
          } else {
             // send query results to be displayed on results page
-            res.render('pages/results', {result: result});
+            res.render('pages/jobs', {result: result});
        }
     });
  }
