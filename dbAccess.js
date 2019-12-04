@@ -36,7 +36,7 @@ function getJobs(req, res) {
  function getJobsFromDb(category, callback) {
     var sql = "";
     // If no category specified, then display all jobs
-    if(category == ""){
+    if(category == "" || category == null){
         sql = "SELECT * FROM Job";
         pool.query(sql, function(err, result) {
             if (err) {
