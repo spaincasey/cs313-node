@@ -20,9 +20,10 @@ app.set('port', process.env.PORT || 5000)
    .get('/', function(req, res){
       res.render('pages/HomePage');
    })
-   .get('/jobs', function(req, res){
-      res.render('pages/jobs');
-   })
+   .get('/jobs', dbAccess.getJobs)
+   // {
+      // res.render('pages/jobs');
+   // })
    .get('/reviews', function(req, res){
       res.render('pages/reviews');
    })
