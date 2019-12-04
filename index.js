@@ -33,14 +33,14 @@ app.set('port', process.env.PORT || 5000)
          const first = req.body.first_name;
          const last  = req.body.last_name;
          const email = req.body.email;
-         const a = await addUser();
          console.log("First Name: " + first);
          console.log("Last Name: " + last);
          console.log("Email: " + email);
+         const a = await addUser();
+         console.log(a);
       } catch {
          console.log(error)
-      }
-      req.end()
+      } 
    })
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
@@ -50,19 +50,11 @@ app.set('port', process.env.PORT || 5000)
    function addUser() {
       return new Promise(resolve => {
          setTimeout(() => {
-           resolve('');
+           resolve('Done');
          }, 200);
        });
    }
 
-   function who() {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve('🤡');
-        }, 200);
-      });
-    }
-
-    // {
+   // {
       // res.render('pages/jobs');
    // })f
