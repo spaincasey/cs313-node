@@ -9,8 +9,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/css/styles.css">
+  <script src="../dbAccess.js"></script>
 </head>
 <body>
+<!-- Bootstrap modal for user login -->
 <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -43,6 +45,7 @@
   </div>
 </div>
 
+<!-- NAVBAR -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -65,10 +68,11 @@
   </div>
 </nav>
 
+<!-- JOBS FORM -->
 <div class='jobs'>
   <div class='jobs'>
     <h1>Our Projects</h1>
-    <form id="jobsForm" action="/getJobs" method="get" novalidate>
+    <form id="jobsForm" onsubmit="search()">
         <select name="category" class="dropdown" id="category" required>
           <option value="" selected>all</option>
           <option value="drywall">drywall</option>
@@ -82,6 +86,7 @@
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <div class="row">
     <div class="col-sm-4">

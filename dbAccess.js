@@ -11,6 +11,12 @@ pool.on('error', (err, client) => {
 
 // }
 
+function search() {
+    var category = document.getElementById('category').value;
+    console.log('Category: ' + category);
+
+}
+
 
 // FUNCTION getJobs queries database for jobs
 function getJobs(req, res) {
