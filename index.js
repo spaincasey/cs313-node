@@ -21,9 +21,7 @@ app.set('port', process.env.PORT || 5000)
       res.render('pages/HomePage');
    })
    .get('/jobs', dbAccess.getJobs)
-   .get('/reviews', function(req, res){
-      res.render('pages/reviews');
-   })
+   .get('/reviews', dbAccess.getReviews)
    .get('/contact', function(req, res){
       res.render('pages/contact');
    })

@@ -58,7 +58,30 @@ function getJobs(req, res) {
     }   
  }
 
+ // FUNCTION getJobs queries database for jobs
+function getReviews(req, res) {
+    // Get category from dropdown menu
+    getReviewsFromDb(function(error, result) {
+         if (error || result == null) {
+            res.status(500).json({success: false, data: error});
+         } else {
+            // send query results to be displayed on results page
+            res.render('pages/reviews', {result: result});
+       }
+    });
+ }
+ function getReviewsFromDb(callback) {
+    var sql = "SELECT * FROM Review";
+    pool.query(sql, function(err, result) {
+        if(err) {
+            callback(err, null);
+        }
+        callback(null, result.rows);
+    })  
+ }
+
  module.exports = {
      getJobs: getJobs,
-     postUser: postUser
+     postUser: postUser,
+     getReviews: getReviews
 };

@@ -10,40 +10,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/css/styles.css">
   <script type="text/javascript">
-//     window.onload = function() {
-//         read();
-//     }
-
-//     /********************************************************
-// 	* AJAX request to read the Job items
-// 	*********************************************************/
-// 	function read() {
-// 		var xhttp = new XMLHttpRequest();
-// 		xhttp.onreadystatechange = function() {
-// 			if (this.readyState == 4 && this.status == 200) {
-//                 data = this.responseText;
-//                 document.getElementById("results").innerHTML = data;
-// 			}
-// 		};
-// 		xhttp.open("GET", "loadReviews.php" , true);
-// 		xhttp.send();
-// 	}
-
-//   function addUser() {
-//     var first = document.getElementById("first_name").value;
-//     var last = document.getElementById("last_name").value;
-//     var email = document.getElementById("email").value;
-//     var url = "addUser.php?fname=" + first + "&lname=" + last + "&email=" + email;
-// 		var xhttp = new XMLHttpRequest();
-// 		xhttp.onreadystatechange = function() {
-// 			if (this.readyState == 4 && this.status == 200) {
-//         // data = this.responseText;
-//         document.getElementById("result").innerHTML = this.responseText;
-// 			}
-// 		};
-// 		xhttp.open("POST", url , true);
-// 		xhttp.send();
-//   }
   </script>
 </head>
 <body>
@@ -73,14 +39,6 @@
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-primary" name="action" value="Sign Up/Sign In" />
-        <!-- <div class="row">
-          <div class="col-sm-6">
-            <input type="submit" class="btn btn-primary" name="action" value="Sign Up/Sign In" />
-          </div>
-          <div class="col-sm-6">
-            <input type="submit" class="btn btn-primary" name="action" value="Sign In" />
-          </div>
-        </div> -->
       </div>
       </form>
     </div>
@@ -115,6 +73,14 @@
   <div class='jobs'>
     <h1>Customer Reviews</h1>
     <div id="results">
+      <!-- Loop through results and display them -->
+      echo "<hr><p>$review</p>";
+      echo "<h3>- $fname $lname</h3>";
+      <% for(var i=0; i<result.length; i++) {%>
+          <hr>
+          <p> <%= results[i].review_text %> </p>
+          <h3> <%= result[i].user_app_id %> </h3>
+      <% }%>
     </div>
   </div>
 </div>
