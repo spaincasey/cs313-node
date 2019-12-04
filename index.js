@@ -29,8 +29,12 @@ app.set('port', process.env.PORT || 5000)
    })
    .get('/getJobs', dbAccess.getJobs)
    .post('/postUser', async(req, res) => {
-      const first = await req.body.first_name;
-      console.log("First Name: " + first);
+      const first = req.body.first_name;
+      const last  = req.body.last_name;
+      const email = req.body.email;
+      await console.log("First Name: " + first);
+      console.log("Last Name: " + last);
+      console.log("Email: " + email);
    })
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
