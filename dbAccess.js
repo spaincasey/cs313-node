@@ -77,6 +77,7 @@ function getReviews(req, res) {
             callback(err, null);
         }
         callback(null, result.rows);
+        console.log(result);
     })  
  }
 
