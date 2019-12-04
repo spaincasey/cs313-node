@@ -38,3 +38,5 @@ SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = 'roofing';
 UPDATE Job SET image = '/images/drywall1.jpg' WHERE image = 'drywall1.jpg';
 UPDATE Job SET image = '/images/roofing1.jpg' WHERE image = 'roofing1.jpg';
 UPDATE Job SET image = '/images/demolition1.jpg' WHERE image = 'demolition1.jpg';
+
+INSERT INTO User_app(first_name, last_name, email, user_role)VALUES('Casey', 'Spain', 'spa12007@byui.edu', (SELECT id FROM User_role WHERE role_name='User'));

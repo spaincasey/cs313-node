@@ -7,15 +7,17 @@ pool.on('error', (err, client) => {
    process.exit(-1)
  })
 
-// function postUser(req, res) {
+function postUser(req, res) {
+    const first = request.body.first_name;
+    console.log("First Name: " + first);
+    // var sql = "INSERT INTO User_app(first_name, last_name, email, user_role)VALUES($1, $2, $3, (SELECT id FROM User_role WHERE role_name='User'))";
+}
+
+// function search() {
+//     var category = document.getElementById('category').value;
+//     console.log('Category: ' + category);
 
 // }
-
-function search() {
-    var category = document.getElementById('category').value;
-    console.log('Category: ' + category);
-
-}
 
 
 // FUNCTION getJobs queries database for jobs
