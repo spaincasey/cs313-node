@@ -21,9 +21,6 @@ app.set('port', process.env.PORT || 5000)
       res.render('pages/HomePage');
    })
    .get('/jobs', dbAccess.getJobs)
-   // {
-      // res.render('pages/jobs');
-   // })
    .get('/reviews', function(req, res){
       res.render('pages/reviews');
    })
@@ -34,3 +31,7 @@ app.set('port', process.env.PORT || 5000)
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    });
+
+    // {
+      // res.render('pages/jobs');
+   // })
