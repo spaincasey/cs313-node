@@ -28,8 +28,8 @@ app.set('port', process.env.PORT || 5000)
       res.render('pages/contact');
    })
    .get('/getJobs', dbAccess.getJobs)
-   .post('/postUser', function(req, res){
-      const first = req.body.first_name;
+   .post('/postUser', async(req, res) => {
+      const first = await req.body.first_name;
       console.log("First Name: " + first);
    })
    .listen(app.get('port'), function() {
