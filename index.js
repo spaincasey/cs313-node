@@ -29,6 +29,7 @@ app.set('port', process.env.PORT || 5000)
    })
    .get('/getJobs', dbAccess.getJobs)
    .post('/postUser', function(req, res){
+      const first = request.body.first_name;
       console.log("First Name: " + first);
    })
    .listen(app.get('port'), function() {
