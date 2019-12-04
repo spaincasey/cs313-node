@@ -36,7 +36,7 @@ app.set('port', process.env.PORT || 5000)
          console.log("First Name: " + first);
          console.log("Last Name: " + last);
          console.log("Email: " + email);
-         const a = await addUser();
+         const a = await addUser(first, last, email);
          console.log(a);
          return a;
       } catch {
@@ -48,7 +48,7 @@ app.set('port', process.env.PORT || 5000)
    });
 
 
-   function addUser() {
+   addUser = async(first, last, email) => {
       return new Promise(resolve => {
          setTimeout(() => {
            resolve('Done');
