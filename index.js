@@ -28,9 +28,9 @@ app.set('port', process.env.PORT || 5000)
    .get('/getJobs', dbAccess.getJobs)
    .post('/postUser', async(req, res) => {
       try {
-         const first = req.body.first_name;
-         const last  = req.body.last_name;
-         const email = req.body.email;
+         const first = req.query.fname;
+         const last  = req.query.lname;
+         const email = req.query.email;
          console.log("First Name: " + first);
          console.log("Last Name: " + last);
          console.log("Email: " + email);

@@ -8,7 +8,7 @@ pool.on('error', (err, client) => {
  })
 
 function postUser(req, res) {
-    const first = request.body.first_name;
+    const first = req.body.first_name;
     console.log("First Name: " + first);
     // var sql = "INSERT INTO User_app(first_name, last_name, email, user_role)VALUES($1, $2, $3, (SELECT id FROM User_role WHERE role_name='User'))";
 }
