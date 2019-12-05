@@ -31,15 +31,6 @@ app.set('port', process.env.PORT || 5000)
       console.log('Listening on port: ' + app.get('port'));
    });
 
-
-   addUser = async(first, last, email) => {
-      return new Promise(resolve => {
-         setTimeout(() => {
-           resolve('Done');
-         }, 200);
-       });
-   }
-
    // {
       // res.render('pages/jobs');
    // })f
