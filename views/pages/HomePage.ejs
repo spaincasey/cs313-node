@@ -28,7 +28,7 @@
 		};
 		xhttp.open("POST", url , true);
 		xhttp.send();
-}
+  }
   </script>
 </head>
 <body>
@@ -41,25 +41,25 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form onsubmit="addUser()">
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-sm-6">
-            <label for="email"><b>First Name</b></label>
-            <input type="text" placeholder="Enter First Name" id="first_name" name="first_name" required>
+      <form method="post" onsubmit="addUser()">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="email"><b>First Name</b></label>
+              <input type="text" placeholder="Enter First Name" id="first_name" required>
+            </div>
+            <div class="col-sm-6">
+              <label for="email"><b>Last Name</b></label>
+              <input type="text" placeholder="Enter Last Name" id="last_name" required>
+            </div>
           </div>
-          <div class="col-sm-6">
-            <label for="email"><b>Last Name</b></label>
-            <input type="text" placeholder="Enter Last Name" id="last_name" name="last_name" required>
-          </div>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" id="email" required>
         </div>
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" id="email" name="email" required>
-      </div>
-      <div class="modal-footer">
-        <input type="submit" class="btn btn-primary"/>
-      </div>
-      </form>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-primary" name="action" value="Sign Up/Sign In" />
+        </div>
+        </form>
     </div>
   </div>
 </div>
