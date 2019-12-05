@@ -7,11 +7,34 @@ pool.on('error', (err, client) => {
    process.exit(-1)
  })
 
-function postUser(req, res) {
-    const first = req.body.first_name;
-    console.log("First Name: " + first);
-    // var sql = "INSERT INTO User_app(first_name, last_name, email, user_role)VALUES($1, $2, $3, (SELECT id FROM User_role WHERE role_name='User'))";
+postUser = async(req, res) => {
+    try {
+        const first = req.query.fname;
+        const last  = req.query.lname;
+        const email = req.query.email;
+        console.log("First Name: " + first);
+        console.log("Last Name: " + last);
+        console.log("Email: " + email);
+        const a = await addUser(first, last, email);
+        console.log(a);
+        res.render('pages/HomePage');
+    } catch {
+        console.log(error)
+    } 
 }
+addUser = async(first, last, email) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve('Done');
+        }, 200);
+    });
+}
+
+// (req, res) {
+//     const first = req.body.first_name;
+//     console.log("First Name: " + first);
+//     // var sql = "INSERT INTO User_app(first_name, last_name, email, user_role)VALUES($1, $2, $3, (SELECT id FROM User_role WHERE role_name='User'))";
+// }
 
 // FUNCTION getJobs queries database for jobs
 function getJobs(req, res) {

@@ -26,21 +26,7 @@ app.set('port', process.env.PORT || 5000)
       res.render('pages/contact');
    })
    .get('/getJobs', dbAccess.getJobs)
-   .post('/postUser', async(req, res) => {
-      try {
-         const first = req.query.fname;
-         const last  = req.query.lname;
-         const email = req.query.email;
-         console.log("First Name: " + first);
-         console.log("Last Name: " + last);
-         console.log("Email: " + email);
-         const a = await addUser(first, last, email);
-         console.log(a);
-         res.render('pages/HomePage');
-      } catch {
-         console.log(error)
-      } 
-   })
+   .post('/postUser', dbAccess.postUser)
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    });
