@@ -17,7 +17,7 @@ postUser = async(req, res) => {
         console.log("Email: " + email);
         const a = await addUser(first, last, email);
         console.log(a);
-        res.end();
+        res.render('pages/HomePage');
     } catch {
         console.log(error)
     } 
