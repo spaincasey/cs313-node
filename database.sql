@@ -26,7 +26,7 @@ INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHER
 
 INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHERE email='spaincasey7@gmail.com'), 'Their homes are beautiful and affordable! They have a ton of floor plans to choose from and their staff is super helpful! Best home builder out there. They really care about their customers!');
 INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHERE email='pulp@fiction.com'), 'Amazing to work with, they were always very prompt to respond to our questions and concerns and they made sure things were done right. From the sales team, design team, superintendent down to the closing office the entire crew was personable and provided excellent customer service through the entire process! Highly Recommended!');
-INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHERE email='firstnotlast@fast.com'), 'Pannell construction did such a great job with our house!');
+INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHERE email='firstnotlast@gofast.com'), 'Pannell construction did such a great job with our house!');
 INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id FROM User_app WHERE email='spa12007@byui.edu'), 'Pannell Construction did a great job');
 
 
@@ -34,6 +34,8 @@ INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id FROM User_app WHER
 SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = 'demolition';
 SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = 'drywall';
 SELECT * FROM Job JOIN Category USING(id) WHERE cat_name = 'roofing';
+
+SELECT * FROM Review JOIN User_app USING(id) WHERE id = 1;
 
 UPDATE Job SET image = '/images/drywall1.jpg' WHERE image = 'drywall1.jpg';
 UPDATE Job SET image = '/images/roofing1.jpg' WHERE image = 'roofing1.jpg';
