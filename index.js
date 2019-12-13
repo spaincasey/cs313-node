@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 var dbAccess = require('./dbAccess.js');
-var session = require("express-session");
+// var session = require("express-session");
 const { Pool } = require('pg');
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
