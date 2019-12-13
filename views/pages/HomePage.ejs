@@ -39,7 +39,9 @@
 			if (this.readyState == 4 && this.status == 200) {
         data = this.responseText;
         console.log("User data: " + data);
-        // user(data);
+        if(data) {
+          user(data);
+        }
         // document.getElementById("result").innerHTML = this.responseText;
 			}
 		};
@@ -48,9 +50,7 @@
   }
 
   function user(data) {
-    if(data){
-      document.getElementById("sign").innerHTML = data.result.last_name + ", " + data.result.first_name;
-    }
+    document.getElementById("sign").innerHTML = data.result.last_name + ", " + data.result.first_name;
   }
   </script>
 </head>
@@ -82,10 +82,10 @@
         <div class="modal-footer">
             <div class="row">
               <div class="col-sm-6">
-                  <button type="submit" class="btn btn-primary" onclick="addUser()">Sign Up</button>
+                  <input type="submit" class="btn btn-primary" onclick="addUser()">
               </div>
               <div class="col-sm-6">
-                  <button type="submit" class="btn btn-primary" onclick="checkUser()">Sign In</button>
+                  <input type="submit" class="btn btn-primary" onclick="checkUser()"/>
               </div>
             </div>
         </div>
