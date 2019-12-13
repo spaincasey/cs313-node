@@ -39,9 +39,9 @@
 			if (this.readyState == 4 && this.status == 200) {
         data = this.response;
         parsed = JSON.parse(data);
-        console.log("Data Length: " + data.length);
+        console.log("Data Length: " + parsed.length);
         console.log("User data unparsed: " + data);
-        console.log("User data parsed: " + data.result[1].last_name);
+        console.log("User data parsed: " + parsed.result[1].last_name);
         if(parsed) {
           user(parsed);
         }
