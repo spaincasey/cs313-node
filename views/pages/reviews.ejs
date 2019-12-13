@@ -96,8 +96,8 @@
       <!-- Loop through results and display them -->
       <% for(var i=0; i<result.length; i++) {%>
           <hr>
-          <p> <%= result[i].review_text %> </p>
-          <h3> <%= result[i].user_app_id %> </h3>
+          <p><%= result[i].review_text %></p>
+          <h3><%= result[i].first_name %> <%= result[i].last_name %></h3>
       <% }%>
     </div>
   </div>
