@@ -40,7 +40,7 @@
         data = this.responseText;
         parsed = JSON.parse(data);
         console.log("Data Length: " + data.length);
-        console.log("User name: " + parsed.result.last_name);
+        console.log("User data: " + parsed);
         if(parsed) {
           user(parsed);
         }
