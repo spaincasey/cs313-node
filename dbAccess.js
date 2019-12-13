@@ -105,7 +105,7 @@ function getUser(req, res) {
             res.status(500).json({success: false, data: error});
          } else {
             // send query results to be displayed on results page
-            res.send("Congratulations!");
+            res.send({result: result});
        }
     });
  }
