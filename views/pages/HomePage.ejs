@@ -49,7 +49,9 @@
   }
 
   function user(data) {
-    document.getElementById("sign").innerHTML = data.result.last_name + ", " + data.result.first_name;
+    if(data){
+      document.getElementById("sign").innerHTML = data.result.last_name + ", " + data.result.first_name;
+    }
   }
   </script>
 </head>
