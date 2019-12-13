@@ -52,7 +52,7 @@ function getUser(req, res) {
          } else {
             // send query results to be displayed on results page
             res.send({result: result});
-            console.log("Results are: " + result.first_name);
+            console.log("Results are: " + result[1]);
        }
     });
  }
