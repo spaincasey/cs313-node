@@ -19,7 +19,7 @@ postUser = async(req, res) => {
         console.log(a);
         res.send(first, last);
     } catch {
-        console.log(error)
+        console.log("Could not add user");
     } 
 }
 addUser = async(first, last, email) => {
