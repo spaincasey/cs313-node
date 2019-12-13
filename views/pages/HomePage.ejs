@@ -37,10 +37,11 @@
     var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-        data = this.responseText;
+        data = this.response;
         parsed = JSON.parse(data);
         console.log("Data Length: " + data.length);
-        console.log("User data: " + parsed);
+        console.log("User data unparsed: " + data);
+        console.log("User data parsed: " + parsed);
         if(parsed) {
           user(parsed);
         }
