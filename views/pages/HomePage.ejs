@@ -38,10 +38,11 @@
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
         data = this.responseText;
+        parsed = JSON.parse(data);
         console.log("Data Length: " + data.length);
-        console.log("User name: " + data.result.last_name);
-        if(data) {
-          user(data);
+        console.log("User name: " + parsed.result.last_name);
+        if(parsed) {
+          user(parsed);
         }
 			}
 		};
