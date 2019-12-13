@@ -1,12 +1,34 @@
 const express = require('express');
 const app = express();
 var dbAccess = require('./dbAccess.js');
+var session = require("express-session");
 const { Pool } = require('pg');
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 pool.on('error', (err, client) => {
    console.error('Unexpected error on idle client', err)
    process.exit(-1)
+ })
+
+
+ app.use(session({
+   secret: 'construction-project-secret',
+   resave: false,
+   saveUninitialized: true
+ }))
+ 
+ app.use(function (req, res, next) {
+   if (!req.session.views) {
+     req.session.views = {}
+   }
+ 
+   // get the url pathname
+   var pathname = parseurl(req).pathname
+ 
+   // count the views
+   req.session.views[pathname] = (req.session.views[pathname] || 0) + 1
+ 
+   next()
  })
  
 
