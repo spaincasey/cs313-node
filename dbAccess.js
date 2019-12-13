@@ -112,7 +112,7 @@ function getUser(req, res) {
  function getUserFromDb(email, callback) {
     const params = [email];
     var sql = "SELECT * FROM User_app WHERE email = $1";
-    pool.query(sql, function(err, result) {
+    pool.query(sql, params, function(err, result) {
         if(err) {
             callback(err, null);
         }
