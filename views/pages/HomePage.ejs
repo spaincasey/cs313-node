@@ -39,11 +39,18 @@
 			if (this.readyState == 4 && this.status == 200) {
         data = this.responseText;
         console.log("User data: " + data);
+        if(data) {
+          user(data);
+        }
         // document.getElementById("result").innerHTML = this.responseText;
 			}
 		};
 		xhttp.open("GET", url , true);
     xhttp.send();
+  }
+
+  user(data) {
+    document.getElementById("sign").innerHTML = data.last_name + ", " + data.first_name;
   }
   </script>
 </head>
@@ -103,7 +110,7 @@
         <li><a href="/jobs">Jobs</a></li>
         <li><a href="/reviews">Reviews</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up/Sign In</a></li>
+        <li id="sign"><a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up/Sign In</a></li>
         <li><a href="#" id="user"></a></li>
       </ul>
     </div>
