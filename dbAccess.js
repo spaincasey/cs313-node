@@ -7,6 +7,9 @@ pool.on('error', (err, client) => {
    process.exit(-1)
  })
 
+/*********************************************
+ * POST USER
+ *********************************************/
 postUser = async(req, res) => {
     try {
         const first = req.query.fname;
@@ -35,6 +38,39 @@ addUser = async(first, last, email) => {
     });
 }
 
+/*********************************************
+ * GET USER
+ *********************************************/
+function getUser(req, res) {
+    const email = req.query.email;
+    console.log(email);
+    // Get category from dropdown menu
+    getUserFromDb(email, function(error, result) {
+         if (error || result == null) {
+            res.status(500).json({success: false, data: error});
+            console.log("ERROR");
+         } else {
+            // send query results to be displayed on results page
+            res.send({result: result});
+            console.log(result);
+       }
+    });
+ }
+ function getUserFromDb(email, callback) {
+    const params = [email];
+    var sql = "SELECT * FROM User_app WHERE email = $1";
+    pool.query(sql, params, function(err, result) {
+        if(err) {
+            callback(err, null);
+        }
+        callback(null, result.rows);
+        console.log(result);
+    })  
+ }
+
+/*********************************************
+ * GET JOBS
+ *********************************************/
 // FUNCTION getJobs queries database for jobs
 function getJobs(req, res) {
     // Get category from dropdown menu
@@ -73,9 +109,10 @@ function getJobs(req, res) {
     }   
  }
 
- // FUNCTION getJobs queries database for jobs
+ /*********************************************
+ * GET REVIEWS
+ *********************************************/
 function getReviews(req, res) {
-    // Get category from dropdown menu
     getReviewsFromDb(function(error, result) {
          if (error || result == null) {
             res.status(500).json({success: false, data: error});
@@ -88,32 +125,6 @@ function getReviews(req, res) {
  function getReviewsFromDb(callback) {
     var sql = "SELECT * FROM Review, User_app WHERE Review.user_app_id = User_app.id;";
     pool.query(sql, function(err, result) {
-        if(err) {
-            callback(err, null);
-        }
-        callback(null, result.rows);
-        console.log(result);
-    })  
- }
-
- // FUNCTION getJobs queries database for jobs
-function getUser(req, res) {
-    const email = req.query.email;
-    console.log(email);
-    // Get category from dropdown menu
-    getUserFromDb(email, function(error, result) {
-         if (error || result == null) {
-            res.status(500).json({success: false, data: error});
-         } else {
-            // send query results to be displayed on results page
-            res.send({result: result});
-       }
-    });
- }
- function getUserFromDb(email, callback) {
-    const params = [email];
-    var sql = "SELECT * FROM User_app WHERE email = $1";
-    pool.query(sql, params, function(err, result) {
         if(err) {
             callback(err, null);
         }
