@@ -99,6 +99,7 @@ function getReviews(req, res) {
  // FUNCTION getJobs queries database for jobs
 function getUser(req, res) {
     const email = req.query.email;
+    console.log(email);
     // Get category from dropdown menu
     getUserFromDb(email, function(error, result) {
          if (error || result == null) {
