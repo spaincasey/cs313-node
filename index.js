@@ -11,25 +11,25 @@ pool.on('error', (err, client) => {
  })
 
 
- app.use(session({
-   secret: 'construction-project-secret',
-   resave: false,
-   saveUninitialized: true
- }))
+//  app.use(session({
+//    secret: 'construction-project-secret',
+//    resave: false,
+//    saveUninitialized: true
+//  }))
  
- app.use(function (req, res, next) {
-   if (!req.session.views) {
-     req.session.views = {}
-   }
+//  app.use(function (req, res, next) {
+//    if (!req.session.views) {
+//      req.session.views = {}
+//    }
  
-   // get the url pathname
-   var pathname = parseurl(req).pathname
+//    // get the url pathname
+//    var pathname = parseurl(req).pathname
  
-   // count the views
-   req.session.views[pathname] = (req.session.views[pathname] || 0) + 1
+//    // count the views
+//    req.session.views[pathname] = (req.session.views[pathname] || 0) + 1
  
-   next()
- })
+//    next()
+//  })
  
 
 // ESTABLISH PORT AND SET ENDPOINTS 
