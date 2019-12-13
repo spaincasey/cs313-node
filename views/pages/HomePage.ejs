@@ -39,7 +39,7 @@
 			if (this.readyState == 4 && this.status == 200) {
         data = this.responseText;
         console.log("Data Length: " + data.length);
-        console.log("User data: " + data);
+        console.log("User name: " + data.result.last_name);
         if(data) {
           user(data);
         }
