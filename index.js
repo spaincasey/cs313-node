@@ -30,7 +30,3 @@ app.set('port', process.env.PORT || 5000)
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    });
-
-   // {
-      // res.render('pages/jobs');
-   // })f
