@@ -44,3 +44,4 @@ UPDATE Job SET image = '/images/demolition1.jpg' WHERE image = 'demolition1.jpg'
 INSERT INTO User_app(first_name, last_name, email, user_role)VALUES('Casey', 'Spain', 'spa12007@byui.edu', (SELECT id FROM User_role WHERE role_name='User'));
 
 SELECT * FROM Review, User_app WHERE Review.user_app_id = User_app.id;
+DELETE FROM User_app WHERE id = 18;
