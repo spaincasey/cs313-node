@@ -12,9 +12,6 @@ postUser = async(req, res) => {
         const first = req.query.fname;
         const last  = req.query.lname;
         const email = req.query.email;
-        console.log("First Name: " + first);
-        console.log("Last Name: " + last);
-        console.log("Email: " + email);
         const a = await addUser(first, last, email);
         console.log(a);
         res.send(first, last);
@@ -37,12 +34,6 @@ addUser = async(first, last, email) => {
         }, 200);
     });
 }
-
-// (req, res) {
-//     const first = req.body.first_name;
-//     console.log("First Name: " + first);
-//     // var sql = "INSERT INTO User_app(first_name, last_name, email, user_role)VALUES($1, $2, $3, (SELECT id FROM User_role WHERE role_name='User'))";
-// }
 
 // FUNCTION getJobs queries database for jobs
 function getJobs(req, res) {
@@ -105,8 +96,34 @@ function getReviews(req, res) {
     })  
  }
 
+ // FUNCTION getJobs queries database for jobs
+function getUser(req, res) {
+    const email = req.query.email;
+    // Get category from dropdown menu
+    getUserFromDb(email, function(error, result) {
+         if (error || result == null) {
+            res.status(500).json({success: false, data: error});
+         } else {
+            // send query results to be displayed on results page
+            res.send("Congratulations!");
+       }
+    });
+ }
+ function getUserFromDb(email, callback) {
+    const params = [email];
+    var sql = "SELECT * FROM User_app WHERE email = $1";
+    pool.query(sql, function(err, result) {
+        if(err) {
+            callback(err, null);
+        }
+        callback(null, result.rows);
+        console.log(result);
+    })  
+ }
+
  module.exports = {
      getJobs: getJobs,
+     getUser: getUser,
      postUser: postUser,
      getReviews: getReviews
 };

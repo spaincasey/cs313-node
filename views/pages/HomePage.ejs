@@ -29,6 +29,21 @@
     xhttp.send();
     alert("You have been added to the database");
   }
+  function checkUser() {
+    var first = document.getElementById("first_name").value;
+    var last = document.getElementById("last_name").value;
+    var email = document.getElementById("email").value;
+    var url = "/getUser?fname=" + first + "&lname=" + last + "&email=" + email;
+    var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+        // data = this.responseText;
+        // document.getElementById("result").innerHTML = this.responseText;
+			}
+		};
+		xhttp.open("GET", url , true);
+    xhttp.send();
+  }
   </script>
 </head>
 <body>
@@ -41,7 +56,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form onsubmit="addUser()">
+      <form>
         <div class="modal-body">
           <div class="row">
             <div class="col-sm-6">
@@ -59,10 +74,10 @@
         <div class="modal-footer">
             <div class="row">
               <div class="col-sm-6">
-                  <input type="submit" class="btn btn-primary" value="Sign Up"/>
+                  <input type="submit" class="btn btn-primary" name="sign_up" value="Sign Up" onclick="addUser()"/>
               </div>
               <div class="col-sm-6">
-                  <input type="submit" class="btn btn-primary" value="Sign In"/>
+                  <input type="submit" class="btn btn-primary" name="sign_in" value="Sign In" onclick="checkUser()"/>
               </div>
             </div>
         </div>

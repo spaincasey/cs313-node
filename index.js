@@ -26,6 +26,7 @@ app.set('port', process.env.PORT || 5000)
       res.render('pages/contact');
    })
    .get('/getJobs', dbAccess.getJobs)
+   .get('/getUser', dbAccess.getUser)
    .post('/postUser', dbAccess.postUser)
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
