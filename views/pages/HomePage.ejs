@@ -40,10 +40,9 @@
         data = this.responseText;
         console.log("Data Length: " + data.length);
         console.log("User data: " + data);
-        // if(data) {
-        //   user(data);
-        // }
-        // document.getElementById("result").innerHTML = this.responseText;
+        if(data) {
+          user(data);
+        }
 			}
 		};
 		xhttp.open("GET", url , true);
