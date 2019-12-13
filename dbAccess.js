@@ -95,7 +95,7 @@ function getReviews(req, res) {
     });
  }
  function getReviewsFromDb(callback) {
-    var sql = "SELECT * FROM Review JOIN User_app USING(user_app_id)";
+    var sql = "SELECT * FROM Review, User_app WHERE Review.user_app_id = User_app.id;";
     pool.query(sql, function(err, result) {
         if(err) {
             callback(err, null);
