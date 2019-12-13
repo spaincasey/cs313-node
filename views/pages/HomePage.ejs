@@ -37,7 +37,7 @@
     var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-        data = this.result;
+        data = this.responseText;
         console.log("Data Length: " + data.length);
         console.log("User data: " + data);
         // if(data) {
