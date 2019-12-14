@@ -51,7 +51,9 @@
   }
 
   function user(data) {
-    document.getElementById("sign").innerHTML = "<a href='#'>" + data.result[0].last_name + ", " + data.result[0].first_name + "</a>";
+    sign = document.getElementById("sign");
+    sign.classList.add("active");
+    sign.innerHTML = "<a href='#'>" + data.result[0].last_name + ", " + data.result[0].first_name + "</a>";
   }
   </script>
 </head>
