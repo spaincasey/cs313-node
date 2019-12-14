@@ -87,7 +87,7 @@ function getJobs(req, res) {
             sess = req.session;
             // parsed = JSON.parse(result);
             if(sess.user) {
-                res.render('pages/jobs', {result: result});
+                res.render('pages/jobs', {result: result, user: sess.user});
                 console.log("User set");
             } else {
                 res.render('pages/jobs', {result: result});

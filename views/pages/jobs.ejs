@@ -47,6 +47,13 @@
     xhttp.send();
   }
 
+  function checkForUser() {
+    if(user) {
+      console.log(user);
+      // user(user);
+    }
+  }
+
   function user(data) {
     sign = document.getElementById("sign");
     sign.classList.add("active");
@@ -59,7 +66,7 @@
   }
   </script>
 </head>
-<body>
+<body onload="checkForUser()">
 <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
