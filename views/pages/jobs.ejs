@@ -49,7 +49,7 @@
 
   function checkForUser() {
     if(user) {
-      console.log(user);
+      console.log("User info: " + user);
       // user(user);
     }
   }
@@ -121,11 +121,11 @@
         <li class="active"><a href="#">Jobs</a></li>
         <li><a href="/reviews">Reviews</a></li>
         <li><a href="/contact">Contact</a></li>
-        <% if(user) { checkForUser()%>
-          <li id="sign"><a href='#'><% user.last_name%>, <%user.first_name%></a></li> 
-        <% } else {%>
+        <!-- <% if(user) { checkForUser()%> -->
+          <!-- <li id="sign"><a href='#'><% user.last_name%>, <%user.first_name%></a></li>  -->
+        <!-- <% } else {%> -->
           <li id="sign"><a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up/Sign In</a></li>
-        <% }%>
+        <!-- <% }%> -->
       </ul>
     </div>
   </div>
