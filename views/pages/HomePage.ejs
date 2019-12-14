@@ -111,8 +111,11 @@
         <li><a href="/jobs">Jobs</a></li>
         <li><a href="/reviews">Reviews</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li id="sign"><a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up/Sign In</a></li>
-        <li><a href="#" id="user"></a></li>
+        <% if(user == undefined) {%>
+          <li id="sign"><a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up/Sign In</a></li>
+        <% } else {%>
+          <li id="sign"><a href='#'><%=user[0].last_name%>, <%=user[0].first_name%></a></li> 
+        <% }%>
       </ul>
     </div>
   </div>

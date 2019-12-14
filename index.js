@@ -24,11 +24,26 @@ app.set('port', process.env.PORT || 5000)
    .set('views', __dirname + '/views')
    .set('view engine', 'ejs')
    .get('/', function(req, res){
-      res.render('pages/HomePage');
+      sess = req.session;
+      if(sess.user != undefined) {
+            res.render('pages/HomePage', {user: sess.user});
+            console.log("User set: " + sess.user);
+      } else {
+            res.render('pages/HomePage', {user: sess.user});
+            console.log("User NOT set");
+      }
    })
    .get('/jobs', dbAccess.getJobs)
    .get('/reviews', dbAccess.getReviews)
    .get('/contact', function(req, res){
+      sess = req.session;
+      if(sess.user != undefined) {
+            res.render('pages/contact', {user: sess.user});
+            console.log("User set: " + sess.user);
+      } else {
+            res.render('pages/contact', {user: sess.user});
+            console.log("User NOT set");
+      }
       res.render('pages/contact');
    })
    .get('/getJobs', dbAccess.getJobs)

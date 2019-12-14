@@ -130,7 +130,14 @@ function getReviews(req, res) {
             res.status(500).json({success: false, data: error});
          } else {
             // send query results to be displayed on results page
-            res.render('pages/reviews', {result: result});
+            sess = req.session;
+            if(sess.user != undefined) {
+                res.render('pages/reviews', {result: result, user: sess.user});
+                console.log("User set: " + sess.user);
+            } else {
+                res.render('pages/reviews', {result: result, user: sess.user});
+                console.log("User NOT set");
+            }
        }
     });
  }
