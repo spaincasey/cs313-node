@@ -84,7 +84,15 @@ function getJobs(req, res) {
             res.status(500).json({success: false, data: error});
          } else {
             // send query results to be displayed on results page
-            res.render('pages/jobs', {result: result});
+            sess = req.session;
+            // parsed = JSON.parse(result);
+            if(sess.user) {
+                res.render('pages/jobs', {result: result});
+                console.log("User set");
+            } else {
+                res.render('pages/jobs', {result: result});
+                console.log("User NOT set");
+            }
        }
     });
  }
