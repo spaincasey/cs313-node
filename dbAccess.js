@@ -90,7 +90,7 @@ function getJobs(req, res) {
                 res.render('pages/jobs', {result: result, user: sess.user});
                 console.log("User set: " + sess.user);
             } else {
-                res.render('pages/jobs', {result: result});
+                res.render('pages/jobs', {result: result, user: sess.user});
                 console.log("User NOT set");
             }
        }
