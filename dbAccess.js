@@ -86,9 +86,9 @@ function getJobs(req, res) {
             // send query results to be displayed on results page
             sess = req.session;
             // parsed = JSON.parse(result);
-            if(sess.user) {
+            if(sess.user != undefined) {
                 res.render('pages/jobs', {result: result, user: sess.user});
-                console.log("User set");
+                console.log("User set: " + sess.user);
             } else {
                 res.render('pages/jobs', {result: result});
                 console.log("User NOT set");
