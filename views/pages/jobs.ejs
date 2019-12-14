@@ -123,8 +123,9 @@
         <li><a href="/contact">Contact</a></li>
         <% if(user) {%>
           <li id="sign"><a href='#'><% user.last_name%>, <%user.first_name%></a></li> 
-        <% }%>
+        <% } else {%>
         <li id="sign"><a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up/Sign In</a></li>
+        <% }%>
       </ul>
     </div>
   </div>
