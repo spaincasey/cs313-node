@@ -21,7 +21,7 @@
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-        
+
 			}
 		};
 		xhttp.open("POST", url , true);
@@ -82,10 +82,10 @@
         <div class="modal-footer">
             <div class="row">
               <div class="col-sm-6">
-                  <button type="submit" class="btn btn-primary" onclick="addUser()">Sign Up</button>
+                  <button type="submit" class="btn btn-primary" onclick="addUser()" data-dismiss="modal">Sign Up</button>
               </div>
               <div class="col-sm-6">
-                  <button type="submit" class="btn btn-primary" onclick="checkUser()">Sign In</button>
+                  <button type="submit" class="btn btn-primary" onclick="checkUser()" data-dismiss="modal">Sign In</button>
               </div>
             </div>
         </div>
