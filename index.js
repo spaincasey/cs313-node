@@ -44,7 +44,6 @@ app.set('port', process.env.PORT || 5000)
             res.render('pages/contact', {user: sess.user});
             console.log("User NOT set");
       }
-      res.render('pages/contact');
    })
    .get('/getJobs', dbAccess.getJobs)
    .get('/getUser', dbAccess.getUser) 
