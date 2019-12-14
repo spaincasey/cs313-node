@@ -9,7 +9,12 @@ pool.on('error', (err, client) => {
    console.error('Unexpected error on idle client', err)
    process.exit(-1)
  })
- 
+
+app.use(session({
+   secret: 'construction-project-secret',
+   resave: false,
+   saveUninitialized: true
+}))
 
 // ESTABLISH PORT AND SET ENDPOINTS 
 app.set('port', process.env.PORT || 5000)
@@ -27,28 +32,24 @@ app.set('port', process.env.PORT || 5000)
       res.render('pages/contact');
    })
    .get('/getJobs', dbAccess.getJobs)
-   .get('/getUser', dbAccess.getUser)
+   .get('/getUser', dbAccess.getUser) 
    .post('/postUser', dbAccess.postUser)
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    });
 
-app.use(session({
-   secret: 'construction-project-secret',
-   resave: false,
-   saveUninitialized: true
- }))
+
  
- app.use(function (req, res, next) {
-   if (!req.session.views) {
-     req.session.views = {}
-   }
+//  app.use(function (req, res, next) {
+//    if (!req.session.views) {
+//      req.session.views = {}
+//    }
  
-   // get the url pathname
-   var pathname = parseurl(req).pathname
+//    // get the url pathname
+//    var pathname = parseurl(req).pathname
  
-   // count the views
-   req.session.views[pathname] = (req.session.views[pathname] || 0) + 1
+//    // count the views
+//    req.session.views[pathname] = (req.session.views[pathname] || 0) + 1
  
-   next()
- })
+//    next()
+//  })

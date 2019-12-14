@@ -51,8 +51,12 @@ function getUser(req, res) {
             console.log("ERROR");
          } else {
             // send query results to be displayed on results page
-            res.send({result: result});
+            sess = req.session;
+            parsed = JSON.parse(result);
+            sess.user = parsed;
+            res.send({result: result, user: sess.user});
             console.log("Results are: " + result);
+            console.log("Results are: " + sess.user);
        }
     });
  }
