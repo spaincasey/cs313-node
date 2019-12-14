@@ -52,11 +52,11 @@ function getUser(req, res) {
          } else {
             // send query results to be displayed on results page
             sess = req.session;
-            // parsed = JSON.parse(result);
-            // sess.user = parsed;
+            parsed = JSON.parse(result);
+            sess.user = parsed;
             res.send({result: result, user: sess.user});
             console.log("Results are: " + result);
-            // console.log("Results are: " + sess.user);
+            console.log("Results are: " + sess.user);
        }
     });
  }
