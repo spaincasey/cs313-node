@@ -54,7 +54,7 @@ function getUser(req, res) {
             sess = req.session;
             // parsed = JSON.parse(result);
             sess.user = result;
-            res.send({result: result});
+            res.send({result: sess.user});
             console.log("Results are: " + result);
             console.log("Results are: " + sess.user);
        }
