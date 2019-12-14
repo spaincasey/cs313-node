@@ -42,7 +42,7 @@
         console.log("User data: " + data);
         console.log("User data parsed id: " + parsed.result[0].id);
         if(parsed) {
-          user(parsed);
+          loadUser(parsed);
         }
 			}
 		};
@@ -50,7 +50,7 @@
     xhttp.send();
   }
 
-  function user(data) {
+  function loadUser(data) {
     sign = document.getElementById("sign");
     sign.classList.add("active");
     sign.innerHTML = "<a href='#'>" + data.result[0].last_name + ", " + data.result[0].first_name + "</a>";
