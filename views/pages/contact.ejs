@@ -48,7 +48,9 @@ function addUser() {
   }
 
   function user(data) {
-    document.getElementById("sign").innerHTML = "<a href='#'>" + data.result[0].last_name + ", " + data.result[0].first_name + "</a>";
+    sign = document.getElementById("sign");
+    sign.classList.add("active");
+    sign.innerHTML = "<a href='#'>" + data.result[0].last_name + ", " + data.result[0].first_name + "</a>";
   }
   </script>
 </head>
@@ -108,7 +110,7 @@ function addUser() {
         <li><a href="/jobs">Jobs</a></li>
         <li><a href="/reviews">Reviews</a></li>
         <li class="active"><a href="#">Contact</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up/Sign In</a></li>
+        <li id="sign"><a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up/Sign In</a></li>
       </ul>
     </div>
   </div>
