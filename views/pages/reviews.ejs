@@ -21,45 +21,74 @@
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-        // data = this.responseText;
-        // document.getElementById("result").innerHTML = this.responseText;
+
 			}
 		};
 		xhttp.open("POST", url , true);
     xhttp.send();
     alert("You have been added to the database");
   }
+  function checkUser() {
+    var first = document.getElementById("first_name").value;
+    var last = document.getElementById("last_name").value;
+    var email = document.getElementById("email").value;
+    var url = "/getUser?fname=" + first + "&lname=" + last + "&email=" + email;
+    var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+        data = this.response;
+        parsed = JSON.parse(data);
+        console.log("Data Length: " + data.length);
+        console.log("User data: " + data);
+        console.log("User data parsed id: " + parsed.result[0].id);
+        if(parsed) {
+          user(parsed);
+        }
+			}
+		};
+		xhttp.open("GET", url , true);
+    xhttp.send();
+  }
+
+  function user(data) {
+    document.getElementById("sign").innerHTML = "<a href='#'>" + data.result[0].last_name + ", " + data.result[0].first_name + "</a>";
+  }
   </script>
 </head>
 <body>
 <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form onsubmit="addUser()">
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-sm-6">
-              <label for="email"><b>First Name</b></label>
-              <input type="text" placeholder="Enter First Name" id="first_name" required>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <label for="email"><b>First Name</b></label>
+                <input type="text" placeholder="Enter First Name" id="first_name" required>
+              </div>
+              <div class="col-sm-6">
+                <label for="email"><b>Last Name</b></label>
+                <input type="text" placeholder="Enter Last Name" id="last_name" required>
+              </div>
             </div>
-            <div class="col-sm-6">
-              <label for="email"><b>Last Name</b></label>
-              <input type="text" placeholder="Enter Last Name" id="last_name" required>
-            </div>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" id="email" required>
           </div>
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" id="email" required>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-sm-6">
+                  <button type="submit" class="btn btn-primary" onclick="addUser()" data-dismiss="modal">Sign Up</button>
+              </div>
+              <div class="col-sm-6">
+                  <button type="submit" class="btn btn-primary" onclick="checkUser()" data-dismiss="modal">Sign In</button>
+              </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <input type="submit" class="btn btn-primary" value="Sign Up/Sign In" />
-        </div>
-        </form>
     </div>
   </div>
 </div>
