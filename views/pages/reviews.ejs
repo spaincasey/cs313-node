@@ -135,11 +135,11 @@
           <h3><%= result[i].first_name %> <%= result[i].last_name %></h3>
       <% }%>
     </div>
+    <% if(user == undefined) {%>
     <h1>Leave a Review</h1>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <% }%>
   </div>
-  <h1>Leave a Review</h1>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 </div>
 
 <footer>
