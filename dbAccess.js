@@ -39,6 +39,36 @@ addUser = async(first, last, email) => {
 }
 
 /*********************************************
+ * POST REVIEW
+ *********************************************/
+postReview = async(req, res) => {
+    try {
+        const review = req.query.review;
+        const email = req.query.email;
+        const a = await addReview(review, email);
+        console.log(a);
+        res.send({result: result});
+    } catch {
+        console.log("Could not add review");
+    } 
+}
+addUser = async(review, email) => {
+    const sql = "INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id FROM User_app WHERE email=$1), $2);";
+    const params = [email, review];
+    pool.query(sql, params, function(err, result) {
+        // if (err) {
+        //     callback(err, null);
+        // }
+        // callback(null, result.rows);
+    });
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve('Done');
+        }, 200);
+    });
+}
+
+/*********************************************
  * GET USER
  *********************************************/
 function getUser(req, res) {
@@ -156,5 +186,6 @@ function getReviews(req, res) {
      getJobs: getJobs,
      getUser: getUser,
      postUser: postUser,
+     postReview: postReview,
      getReviews: getReviews
 };

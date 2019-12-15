@@ -28,6 +28,7 @@
     xhttp.send();
     alert("You have been added to the database");
   }
+
   function checkUser() {
     var first = document.getElementById("first_name").value;
     var last = document.getElementById("last_name").value;
@@ -55,6 +56,21 @@
     // sign.classList.add("active");
     sign.innerHTML = "<a href='#'>" + data.result[0].last_name + ", " + data.result[0].first_name + "</a>";
   }
+
+  function addReview(email) {
+    var Review = document.getElementById("reviewText").value;
+    var url = "/postReview?review=" + Review + "&email=" + email;
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+
+			}
+		};
+		xhttp.open("POST", url , true);
+    xhttp.send();
+    alert("You're review has been added");
+  }
+
   </script>
 </head>
 <body>
@@ -136,8 +152,9 @@
       <% }%>
     </div>
     <% if(user != undefined) {%>
-    <h1>Leave a Review</h1>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <h1>Leave a Review</h1>
+      <textarea class="form-control" id="reviewText" rows="3"></textarea>
+      <button type="submit" class="btn btn-primary" onclick="addReview(<%=user[0].email%>)">Leave Review</button>
     <% }%>
   </div>
 </div>

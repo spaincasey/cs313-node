@@ -48,6 +48,7 @@ app.set('port', process.env.PORT || 5000)
    .get('/getJobs', dbAccess.getJobs)
    .get('/getUser', dbAccess.getUser) 
    .post('/postUser', dbAccess.postUser)
+   .post('/postReview', dbAccess.postReview)
    .listen(app.get('port'), function() {
       console.log('Listening on port: ' + app.get('port'));
    });
