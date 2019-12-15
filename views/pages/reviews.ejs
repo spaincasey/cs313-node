@@ -52,7 +52,7 @@
 
   function loadUser(data) {
     sign = document.getElementById("sign");
-    sign.classList.add("active");
+    // sign.classList.add("active");
     sign.innerHTML = "<a href='#'>" + data.result[0].last_name + ", " + data.result[0].first_name + "</a>";
   }
   </script>
@@ -135,7 +135,11 @@
           <h3><%= result[i].first_name %> <%= result[i].last_name %></h3>
       <% }%>
     </div>
+    <h1>Leave a Review</h1>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
+  <h1>Leave a Review</h1>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 </div>
 
 <footer>
