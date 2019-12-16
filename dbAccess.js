@@ -15,11 +15,11 @@ postUser = async(req, res) => {
         const first = req.query.fname;
         const last  = req.query.lname;
         const email = req.query.email;
-        const a = await addUser(first, last, email);
-        console.log(a);
+        const result = await addUser(first, last, email);
+        console.log("User result: " + result);
         sess = req.session;
         // parsed = JSON.parse(result);
-        sess.user = a;
+        sess.user = result;
         res.send(first, last);
     } catch {
         console.log("Could not add user");
