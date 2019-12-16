@@ -27,6 +27,7 @@
 		xhttp.open("POST", url , true);
     xhttp.send();
     alert("You have been added to the database");
+    checkUser();
   }
   function checkUser() {
     var first = document.getElementById("first_name").value;
