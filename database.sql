@@ -20,14 +20,17 @@ INSERT INTO User_role(role_name)VALUES('User');
 
 /* Insert User */
 INSERT INTO User_app(first_name, last_name, email, user_role)VALUES('Casey', 'Spain', 'spa12007@byui.edu', (SELECT id FROM User_role WHERE role_name='Owner'));
+INSERT INTO User_app(first_name, last_name, email, user_role)VALUES('Quentin', 'Tarantino', 'pulp@fiction.com', (SELECT id FROM User_role WHERE role_name='User'));
+INSERT INTO User_app(first_name, last_name, email, user_role)VALUES('Ricky', 'Bobby', 'firstnotlast@gofast.com', (SELECT id FROM User_role WHERE role_name='User'));
+INSERT INTO User_app(first_name, last_name, email, user_role)VALUES('Darth', 'Vadar', 'chosenone@darkside.com', (SELECT id FROM User_role WHERE role_name='User'));
+INSERT INTO User_app(first_name, last_name, email, user_role)VALUES('John', 'Wick', 'doglover@continental.com', (SELECT id FROM User_role WHERE role_name='User'));
 
 /* Insert Reviews */
 INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHERE email='spa12007@byui.edu'), 'We had an awesome experience working with Pannell Construction. Designing our home was easy and nearly effortless with all of their options ready for you pick & choose. Our home was built quickly, and the quality is excellent. They were quick to fix any initial issues, and we couldnt be happier with our home! We would recommend Pannel Construction again and again.');
-
-INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHERE email='spaincasey7@gmail.com'), 'Their homes are beautiful and affordable! They have a ton of floor plans to choose from and their staff is super helpful! Best home builder out there. They really care about their customers!');
+INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHERE email='chosenone@darkside.com'), 'Their homes are beautiful and affordable! They have a ton of floor plans to choose from and their staff is super helpful! Best home builder out there. They really care about their customers!');
 INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHERE email='pulp@fiction.com'), 'Amazing to work with, they were always very prompt to respond to our questions and concerns and they made sure things were done right. From the sales team, design team, superintendent down to the closing office the entire crew was personable and provided excellent customer service through the entire process! Highly Recommended!');
 INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id from User_app WHERE email='firstnotlast@gofast.com'), 'Pannell construction did such a great job with our house!');
-INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id FROM User_app WHERE email='spa12007@byui.edu'), 'Pannell Construction did a great job');
+INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id FROM User_app WHERE email='doglover@continental.com'), 'I would recommend Pannell Construction again and again. They worked with us every step of the way and gave us quality work for a fair price');
 
 
 /* Select Statements */
