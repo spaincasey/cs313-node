@@ -162,6 +162,11 @@ footer > .row > .col-sm-4 p {
     width: 100%;
 }
 
+.btn-secondary {
+    background-color: #3581B8 !important;
+    width: 50%;
+}x
+
 .center {
     display: block;
     margin-left: auto;
