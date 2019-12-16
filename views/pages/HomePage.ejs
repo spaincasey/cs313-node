@@ -27,12 +27,31 @@
 		xhttp.open("POST", url , true);
     xhttp.send();
     alert("You have been added to the database");
-    checkUser();
+    checkUser2(first, last, email);
   }
   function checkUser() {
     var first = document.getElementById("first_name").value;
     var last = document.getElementById("last_name").value;
     var email = document.getElementById("email").value;
+    var url = "/getUser?fname=" + first + "&lname=" + last + "&email=" + email;
+    var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+        data = this.response;
+        parsed = JSON.parse(data);
+        console.log("Data Length: " + data.length);
+        console.log("User data: " + data);
+        console.log("User data parsed id: " + parsed.result[0].id);
+        if(parsed) {
+          loadUser(parsed);
+        }
+			}
+		};
+		xhttp.open("GET", url , true);
+    xhttp.send();
+  }
+
+  function checkUser2(first, last, email) {
     var url = "/getUser?fname=" + first + "&lname=" + last + "&email=" + email;
     var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
