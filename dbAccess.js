@@ -20,7 +20,7 @@ postUser = async(req, res) => {
         // sess = req.session;
         // // parsed = JSON.parse(result);
         // sess.user = result;
-        res.send(first, last);
+        res.send();
     } catch {
         console.log("Could not add user");
     } 
