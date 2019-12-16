@@ -49,9 +49,9 @@ postReview = async(req, res) => {
         email = sess.user[0].email;
         console.log("User: " + sess.user);
         console.log("User email: " + email)
-        const a = await addReview(email, review);
+        const result = await addReview(email, review);
         console.log(a);
-        res.send();
+        res.send({result: result, user: sess.user});
     } catch {
         console.log("Could not add review");
     } 
@@ -59,12 +59,15 @@ postReview = async(req, res) => {
 addReview = async(email, review) => {
     const sql = "INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id FROM User_app WHERE email=$1), $2)";
     const params = [email, review];
-    pool.query(sql, params, function(err, result) {
+    pool.query(sql, params, function(err, results) {
 
     });
+    var sql = "SELECT * FROM Review, User_app WHERE Review.user_app_id = User_app.id;";
+    pool.query(sql, function(err, result) {
+    })  
     return new Promise(resolve => {
         setTimeout(() => {
-            resolve('Done');
+            resolve(result);
         }, 200);
     });
 }
