@@ -60,10 +60,7 @@ addReview = async(email, review) => {
     const sql = "INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id FROM User_app WHERE email=$1), $2)";
     const params = [email, review];
     pool.query(sql, params, function(err, result) {
-        // if (err) {
-        //     callback(err, null);
-        // }
-        // callback(null, result.rows);
+
     });
     return new Promise(resolve => {
         setTimeout(() => {
