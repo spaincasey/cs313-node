@@ -57,9 +57,9 @@
     sign.innerHTML = "<a href='#'>" + data.result[0].last_name + ", " + data.result[0].first_name + "</a>";
   }
 
-  function addReview(email) {
+  function addReview() {
     var Review = document.getElementById("reviewText").value;
-    var url = "/postReview?review=" + Review + "&email=" + email;
+    var url = "/postReview?review=" + Review;
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
@@ -154,7 +154,7 @@
     <% if(user != undefined) {%>
       <h1>Leave a Review</h1>
       <textarea class="form-control" id="reviewText" rows="3"></textarea>
-      <button type="submit" class="btn btn-primary" onclick="addReview(<%=user[0].email%>);">Leave Review</button><%;%>
+      <button type="submit" class="btn btn-primary" onclick="addReview();">Leave Review</button>
     <%}%>
   </div>
 </div>
