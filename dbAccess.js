@@ -51,7 +51,7 @@ postReview = async(req, res) => {
         console.log("User email: " + email)
         const a = await addReview(email, review);
         console.log(a);
-        res.send({result: result});
+        res.send();
     } catch {
         console.log("Could not add review");
     } 
