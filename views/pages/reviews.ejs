@@ -68,15 +68,9 @@
 		};
 		xhttp.open("POST", url , true);
     xhttp.send();
+    var newReview = "<hr><p>" + Review + "</p><h3>" + user[0].last_name + ", " + "user[0].first_name" + "</h3>";
+    var results = document.getElementById(results).innerHTML += newReview;
     alert("You're review has been added");
-    var url = "/reviews";
-    var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-			}
-		};
-		xhttp.open("GET", url , true);
-    xhttp.send();
     document.getElementById("reviewText").value = "";
   }
 
