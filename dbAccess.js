@@ -28,12 +28,12 @@ postUser = async(req, res) => {
 addUser = async(first, last, email) => {
     const sql = "INSERT INTO User_app(first_name, last_name, email, user_role)VALUES($1, $2, $3, (SELECT id FROM User_role WHERE role_name='User')) RETURNING *";
     const params = [first, last, email];
-    pool.query(sql, params, function(err, result) {
-        console.log("Insult Results: " + result.rows);
+    var result = pool.query(sql, params, function(err, result) {
+        console.log("Insert Results: " + result.rows);
     });
     return new Promise(resolve => {
         setTimeout(() => {
-            resolve('Done');
+            resolve(result.rows);
         }, 200);
     });
 }
