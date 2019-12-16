@@ -56,7 +56,7 @@ postReview = async(req, res) => {
         console.log("Could not add review");
     } 
 }
-addUser = async(email, review) => {
+addReview = async(email, review) => {
     const sql = "INSERT INTO Review(user_app_id, review_text)VALUES((SELECT id FROM User_app WHERE email=$1), $2)";
     const params = [email, review];
     pool.query(sql, params, function(err, result) {
