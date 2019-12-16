@@ -62,7 +62,7 @@ addReview = async(email, review) => {
     pool.query(sql, params, function(err, results) {
 
     });
-    var sql2 = "SELECT * FROM Review, User_app WHERE Review.user_app_id = User_app.id;";
+    const sql2 = "SELECT * FROM Review, User_app WHERE Review.user_app_id = User_app.id;";
     pool.query(sql2, function(err, result) {
     })  
     return new Promise(resolve => {
