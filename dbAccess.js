@@ -47,6 +47,7 @@ postReview = async(req, res) => {
         console.log("User Review: " + review);
         sess = req.session;
         email = sess.user[0].email;
+        console.log("User: " + sess.user);
         console.log("User email: " + email)
         const a = await addReview(review, email);
         console.log(a);
