@@ -70,7 +70,7 @@
     xhttp.send();
     var newReview = "<hr><p>" + Review + "</p><h3><% if(user != undefined) {%><%=user[0].first_name%>s<%=user[0].last_name%><% }%></h3>";
     var results = document.getElementById(results);
-    results.innerHTML += newReview;
+    results.innerText += newReview;
     alert("You're review has been added");
     document.getElementById("reviewText").value = "";
   }
