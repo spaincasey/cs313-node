@@ -64,10 +64,11 @@ addReview = async(email, review) => {
     });
     const sql2 = "SELECT * FROM Review, User_app WHERE Review.user_app_id = User_app.id;";
     pool.query(sql2, function(err, result) {
+        resolve(result.rows);
     })  
     return new Promise(resolve => {
         setTimeout(() => {
-            resolve(result.rows);
+            resolve(a);
         }, 200);
     });
 }
