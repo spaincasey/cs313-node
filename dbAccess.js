@@ -30,10 +30,6 @@ addUser = async(first, last, email) => {
     const params = [first, last, email];
     pool.query(sql, params, function(err, result) {
         console.log("Insert Results: " + result.rows);
-        // send query results to be displayed on results page
-        sess = req.session;
-        // parsed = JSON.parse(result);
-        sess.user = result.rows;
     });
     return new Promise(resolve => {
         setTimeout(() => {
