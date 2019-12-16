@@ -67,7 +67,7 @@ addReview = async(email, review) => {
     })  
     return new Promise(resolve => {
         setTimeout(() => {
-            resolve(result);
+            resolve(result.rows);
         }, 200);
     });
 }
