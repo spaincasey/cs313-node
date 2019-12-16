@@ -69,6 +69,14 @@
 		xhttp.open("POST", url , true);
     xhttp.send();
     alert("You're review has been added");
+    var url = "/reviews";
+    var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			}
+		};
+		xhttp.open("GET", url , true);
+    xhttp.send();
     document.getElementById("reviewText").value = "";
   }
 
