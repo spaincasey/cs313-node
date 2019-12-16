@@ -17,19 +17,19 @@ postUser = async(req, res) => {
         const email = req.query.email;
         const a = await addUser(first, last, email);
         console.log(a);
+        sess = req.session;
+        // parsed = JSON.parse(result);
+        sess.user = a;
         res.send(first, last);
     } catch {
         console.log("Could not add user");
     } 
 }
 addUser = async(first, last, email) => {
-    const sql = "INSERT INTO User_app(first_name, last_name, email, user_role)VALUES($1, $2, $3, (SELECT id FROM User_role WHERE role_name='User'))";
+    const sql = "INSERT INTO User_app(first_name, last_name, email, user_role)VALUES($1, $2, $3, (SELECT id FROM User_role WHERE role_name='User')) returning *";
     const params = [first, last, email];
     pool.query(sql, params, function(err, result) {
-        // if (err) {
-        //     callback(err, null);
-        // }
-        // callback(null, result.rows);
+        return result;
     });
     return new Promise(resolve => {
         setTimeout(() => {
