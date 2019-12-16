@@ -31,6 +31,7 @@ addUser = async(first, last, email) => {
     var result = pool.query(sql, params, function(err, result) {
         console.log("Insert Results: " + result.rows);
     });
+    console.log("Resultsrestuls: " + result);
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(result.rows);
