@@ -51,7 +51,7 @@ postReview = async(req, res) => {
         console.log("User email: " + email)
         const result = await addReview(email, review);
         console.log(a);
-        res.send({result: result, user: sess.user});
+        res.render('pages/reviews', {result: result, user: sess.user});
     } catch {
         console.log("Could not add review");
     } 
