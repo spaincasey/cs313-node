@@ -45,3 +45,4 @@ INSERT INTO User_app(first_name, last_name, email, user_role)VALUES('Casey', 'Sp
 
 SELECT * FROM Review, User_app WHERE Review.user_app_id = User_app.id;
 DELETE FROM User_app WHERE id = 18;
+DELETE FROM Review WHERE id = 18;
